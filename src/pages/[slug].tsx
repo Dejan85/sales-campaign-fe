@@ -1,32 +1,38 @@
 import { getCampaign, getCampaignsBySlug } from 'api/methods'
-import { Article } from 'components/ui/article'
-import { Section } from 'components/ui/section'
-import { Heading } from 'components/ui/typography/heading'
-import { Paragraph } from 'components/ui/typography/paragraph/Paragraph.styles'
+import { CountdownTimer } from 'components/frontend/countdown-timer'
+import { CheckInLinkLayout } from 'components/ui/layouts/check-in-link-layout'
+import { ImageLayout } from 'components/ui/layouts/image-layout'
+import { MainHeadingLayout } from 'components/ui/layouts/main-heading-layout'
+import { Section } from 'components/ui/styles/section'
 import { GetServerSideProps, NextPage } from 'next'
 import { useRouter } from 'next/router'
 import { CampaignsI, CampaignsQueryKeys, useCampaignsBySlugQuery } from 'queries/useCampaignsQuery'
-import React from 'react'
+import React, { useState } from 'react'
 import { dehydrate, DehydratedState, QueryClient } from 'react-query'
+import { SpecialOfferLayout } from 'components/ui/layouts/special-offer-layout'
+import { PriceLayout } from 'components/ui/layouts/price-layout/PriceLayout'
+import { Container } from 'components/ui/styles/container'
 
 const Campaign: NextPage = (): JSX.Element => {
 	const { query } = useRouter()
 	const slug = query.slug as string
-
+	const [countdownExpire, setCountdownExpire] = useState<boolean>(false)
 	const { campaign } = useCampaignsBySlugQuery(slug)
 
-	// console.log('test campaign', campaign)
-
 	return (
-		<Section theme="primary">
-			<Article theme="primary">
-				<Heading as="h1" theme="primary">
-					Narucite Therapy Air Smart uredaj
-				</Heading>
-				<Paragraph theme="primary">nesakdjask kasjkasjaks as kasd jkdjaskjdka</Paragraph>
-			</Article>
-			<Article theme="primary"></Article>
-		</Section>
+		<Container theme="secondary">
+			<Section theme="primary">
+				<MainHeadingLayout />
+				<PriceLayout />
+				<SpecialOfferLayout />
+				<CountdownTimer countdownTimestampMs={1660960800000} setCountdownExpire={setCountdownExpire} />
+				<CheckInLinkLayout />
+			</Section>
+
+			<Section theme="imageSection">
+				<ImageLayout />
+			</Section>
+		</Container>
 	)
 }
 

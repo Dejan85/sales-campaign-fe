@@ -1,5 +1,5 @@
-import { Layout } from 'components/frontend/layout'
-import { globalStyles } from 'components/ui/global-style/GlobalStyle'
+import { Layout } from 'components/ui/layouts/layout'
+import { globalStyles } from 'components/ui/styles/global-style/GlobalStyle'
 import type { AppProps } from 'next/app'
 import { useRef } from 'react'
 import { Hydrate, QueryClient, QueryClientProvider } from 'react-query'
