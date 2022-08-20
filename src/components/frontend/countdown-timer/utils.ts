@@ -29,6 +29,7 @@ const getRemainingTimeUtilMsTimestamp = (timestampMs: number): DefaultRemainingT
 	const timestampDayJs: Dayjs = dayjs(timestampMs)
 	const nowDayjs: Dayjs = dayjs()
 
+	// sa ovim uslovom mozes da pushujes kada istekne timer
 	if (timestampDayJs.isBefore(nowDayjs)) return defaultRemainingTime
 
 	return {

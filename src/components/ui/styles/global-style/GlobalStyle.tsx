@@ -1,5 +1,6 @@
 import { css, Global } from '@emotion/react'
 import {
+	borders,
 	colors,
 	fonts,
 	fontsSizes,
@@ -52,6 +53,7 @@ export const globalStyles = (
 					${fontWeights};
 					${letterSpacings};
 					${lineHeights};
+					${borders};
 				}
 			`}
 		/>

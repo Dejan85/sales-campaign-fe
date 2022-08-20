@@ -7,6 +7,7 @@ export const fonts = css`
 
 export const fontsSizes = css`
 	--fs-10: 10px;
+	--fs-18: 18px;
 	--fs-20: 20px;
 	--fs-30: 30px;
 	--fs-40: 40px;

@@ -1,8 +1,9 @@
 import { css } from '@emotion/react'
 
 export const widths = css`
-	--wd-1440-px: 1440px;
-	--mwd-650-px: 650px;
+	--wd-1440: 1440px;
+	--wd-200: 200px;
+	--wd-300: 300px;
 
 	--wd-100-per: 100%;
 	--wd-90-per: 90%;
@@ -14,4 +15,8 @@ export const widths = css`
 	--wd-30-per: 30%;
 	--wd-20-per: 20%;
 	--wd-10-per: 10%;
+
+	--mwd-250: 250px;
+	--mwd-650: 650px;
+	--mwd-800: 800px;
 `

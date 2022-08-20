@@ -1,10 +1,39 @@
 import styled from '@emotion/styled'
 
-import { primary, secondary, wrapper, linkWrapper, imageWrapper } from './Container.themes'
+import {
+	primary,
+	primaryBg,
+	secondary,
+	wrapper,
+	linkWrapper,
+	imageWrapper,
+	formWrapper,
+	inputWrapper,
+	buttonWrapper
+} from './Container.themes'
 
 interface ContainerI {
-	theme: 'primary' | 'secondary' | 'wrapper' | 'linkWrapper' | 'imageWrapper'
+	theme:
+		| 'primary'
+		| 'primaryBg'
+		| 'secondary'
+		| 'wrapper'
+		| 'linkWrapper'
+		| 'imageWrapper'
+		| 'formWrapper'
+		| 'inputWrapper'
+		| 'buttonWrapper'
 }
 
-const styles = { primary, secondary, wrapper, linkWrapper, imageWrapper }
+const styles = {
+	primary,
+	primaryBg,
+	secondary,
+	wrapper,
+	linkWrapper,
+	imageWrapper,
+	formWrapper,
+	inputWrapper,
+	buttonWrapper
+}
 export const Container = styled.div(({ theme }: ContainerI) => styles[theme])

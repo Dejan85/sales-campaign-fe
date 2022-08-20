@@ -10,5 +10,5 @@ export const primary = css`
 	background-color: var(--primary-color);
 	color: white;
 	cursor: pointer;
-	margin-top: 50px;
+	margin-top: 70px;
 `

@@ -1,4 +1,5 @@
 import { Container } from 'components/ui/styles/container'
+import { useRouter } from 'next/router'
 import React, { ReactNode } from 'react'
 import { FooterLayout } from '../footer-layout'
 import { HeaderLayout } from '../header-layout/HeaderLayout'
@@ -8,8 +9,10 @@ interface Props {
 }
 
 export const Layout: React.FC<Props> = ({ children }): JSX.Element => {
+	const { pathname } = useRouter()
+
 	return (
-		<Container theme="primary">
+		<Container theme={pathname === '/kupovina' ? 'primaryBg' : 'primary'}>
 			<HeaderLayout />
 			{children}
 			<FooterLayout />

@@ -9,6 +9,8 @@ export const paddings = css`
 	--pd-10: 10px;
 	--pd-20: 20px;
 
+	--pd-input: 16px 24px;
+
 	--pd-t-10px: 10px;
 	--pd-t-20px: 20px;
 	--pd-t-30px: 30px;

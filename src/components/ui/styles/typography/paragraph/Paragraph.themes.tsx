@@ -14,6 +14,10 @@ export const secondary = css`
 	font-style: italic;
 	font-family: var(--primary-font);
 `
+export const third = css`
+	${primary}
+`
+
 export const oldPrice = css`
 	text-decoration: line-through;
 `
