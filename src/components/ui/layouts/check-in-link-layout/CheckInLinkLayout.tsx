@@ -3,10 +3,14 @@ import React from 'react'
 import { Container } from '../../styles/container'
 import { Link as LinkComponent } from '../../styles/link/Link.styles'
 
-export const CheckInLinkLayout: React.FC = (): JSX.Element => {
+interface CheckInLinkLayoutI {
+	slug: string
+}
+
+export const CheckInLinkLayout: React.FC<CheckInLinkLayoutI> = ({ slug }): JSX.Element => {
 	return (
 		<Container theme="linkWrapper">
-			<Link href="/kupovina">
+			<Link href={`/kupovina/${slug}`}>
 				<LinkComponent theme="primary">Prijavite se</LinkComponent>
 			</Link>
 		</Container>

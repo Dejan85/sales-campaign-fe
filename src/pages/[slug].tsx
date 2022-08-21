@@ -23,16 +23,46 @@ const Campaign: NextPage = (): JSX.Element => {
 		<>
 			<Container theme="secondary">
 				<Section theme="primary">
-					<MainHeadingLayout />
+					<MainHeadingLayout headingText="Therapy Air Smart" />
 					<PriceLayout />
 					<SpecialOfferLayout />
 
 					<CountdownTimer countdownTimestampMs={1660960800000} setCountdownExpire={setCountdownExpire} />
-					<CheckInLinkLayout />
+					<CheckInLinkLayout slug="therapy-air-smart" />
 				</Section>
 
 				<Section theme="imageSection">
-					<ImageLayout />
+					<ImageLayout imageName="therapy-air-smart.jpg" />
+				</Section>
+			</Container>
+
+			<Container theme="secondary">
+				<Section theme="primary">
+					<MainHeadingLayout headingText="Therapy Air iOn White" />
+					<PriceLayout />
+					<SpecialOfferLayout />
+
+					<CountdownTimer countdownTimestampMs={1660960800000} setCountdownExpire={setCountdownExpire} />
+					<CheckInLinkLayout slug="therapy-air-iOn-white" />
+				</Section>
+
+				<Section theme="imageSection">
+					<ImageLayout imageName="therapy-air-ion-uredjaji.webp" />
+				</Section>
+			</Container>
+
+			<Container theme="secondary">
+				<Section theme="primary">
+					<MainHeadingLayout headingText="Therapy Air iOn Black" />
+					<PriceLayout />
+					<SpecialOfferLayout />
+
+					<CountdownTimer countdownTimestampMs={1660960800000} setCountdownExpire={setCountdownExpire} />
+					<CheckInLinkLayout slug="therapy-air-iOn-black" />
+				</Section>
+
+				<Section theme="imageSection">
+					<ImageLayout imageName="therapy-air-ion-uredjaji.webp" />
 				</Section>
 			</Container>
 		</>

@@ -54,14 +54,14 @@ export const FormLayout: React.FC<FormLayoutI> = ({
 				{...register('address')}
 				errors={errors.address}
 			/>
-			<SelectLayout
+			{/* <SelectLayout
 				name="model"
 				theme="primary"
 				placeholder="Izaberite model"
 				options={['Therapy Air Smart', 'Therapy Air beli', 'Therapy Air crni']}
 				register={register}
 				errors={errors.model}
-			/>
+			/> */}
 			<Input
 				type="number"
 				min={1}

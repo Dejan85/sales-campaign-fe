@@ -9,7 +9,7 @@ export interface IFormInput {
 	phone: string
 	email: string
 	address: string
-	model: string
+	// model: string
 	quantity: string
 	message: string
 	terms: string
@@ -21,10 +21,10 @@ const schema = yup.object().shape({
 	phone: yup.string().required('Telefon je obavezan'),
 	email: yup.string().required('Email je obavezan'),
 	address: yup.string().required('Adresa je obavezna'),
-	model: yup
-		.string()
-		.test('is-model-checked', 'Niste odabrali model', value => value !== 'nothingSelect')
-		.required(),
+	// model: yup
+	// 	.string()
+	// 	.test('is-model-checked', 'Niste odabrali model', value => value !== 'nothingSelect')
+	// 	.required(),
 	quantity: yup.string().required('Niste odabrali kolicinu'),
 	terms: yup.string(),
 	wishDiscount: yup.string(),
@@ -38,8 +38,6 @@ export const Form: React.FC = (): JSX.Element => {
 	const onSubmit: SubmitHandler<IFormInput> = (data, e) => {
 		console.log(data)
 	}
-
-	console.log('test formState', formState)
 
 	return <FormLayout register={register} handleSubmit={handleSubmit} onSubmit={onSubmit} formState={formState} />
 }
