@@ -2,6 +2,7 @@ import { css } from '@emotion/react'
 
 export const widths = css`
 	--wd-1440: 1440px;
+	--wd-150: 150px;
 	--wd-200: 200px;
 	--wd-300: 300px;
 

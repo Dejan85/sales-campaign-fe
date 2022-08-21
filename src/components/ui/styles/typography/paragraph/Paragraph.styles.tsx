@@ -8,12 +8,23 @@ import {
 	discount,
 	bigNumber,
 	timerText,
-	error
+	error,
+	nav
 } from './Paragraph.themes'
 
 interface ParagraphI {
-	theme: 'primary' | 'secondary' | 'third' | 'oldPrice' | 'newPrice' | 'discount' | 'bigNumber' | 'timerText' | 'error'
+	theme:
+		| 'primary'
+		| 'secondary'
+		| 'third'
+		| 'oldPrice'
+		| 'newPrice'
+		| 'discount'
+		| 'bigNumber'
+		| 'timerText'
+		| 'error'
+		| 'nav'
 }
 
-const styles = { primary, secondary, third, oldPrice, newPrice, discount, bigNumber, timerText, error }
+const styles = { primary, secondary, third, oldPrice, newPrice, discount, bigNumber, timerText, error, nav }
 export const Paragraph = styled.p(({ theme }: ParagraphI) => [styles[theme]])

@@ -49,3 +49,11 @@ export const error = css`
 	left: 24px;
 	bottom: -22px;
 `
+
+export const nav = css`
+	color: white;
+	padding: 10px;
+	background-color: var(--secondary-color);
+	border: 1px solid var(--third-color);
+	cursor: pointer;
+`

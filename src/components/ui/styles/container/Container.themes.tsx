@@ -21,6 +21,12 @@ export const secondary = css`
 	padding-top: var(--pd-t-70px);
 `
 
+export const dashboard = css`
+	display: flex;
+	justify-content: flex-start;
+	min-height: 100vh;
+`
+
 export const wrapper = css`
 	display: flex;
 	flex-direction: column;

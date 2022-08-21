@@ -4,6 +4,7 @@ import {
 	primary,
 	primaryBg,
 	secondary,
+	dashboard,
 	wrapper,
 	linkWrapper,
 	relative,
@@ -17,6 +18,7 @@ interface ContainerI {
 		| 'primary'
 		| 'primaryBg'
 		| 'secondary'
+		| 'dashboard'
 		| 'wrapper'
 		| 'linkWrapper'
 		| 'relative'
@@ -29,6 +31,7 @@ const styles = {
 	primary,
 	primaryBg,
 	secondary,
+	dashboard,
 	wrapper,
 	linkWrapper,
 	relative,

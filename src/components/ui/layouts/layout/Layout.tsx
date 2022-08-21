@@ -9,15 +9,16 @@ interface Props {
 }
 
 export const Layout: React.FC<Props> = ({ children }): JSX.Element => {
-	const { query } = useRouter()
+	const { query, route } = useRouter()
 	const slug = query.slug as string
 	const slugs = ['therapy-air-smart', 'therapy-air-iOn-white', 'therapy-air-iOn-black']
+	const showHeaderFooter = route !== '/dashboard' ? true : false
 
 	return (
 		<Container theme={slugs.indexOf(slug) !== -1 ? 'primaryBg' : 'primary'}>
-			<HeaderLayout />
+			{showHeaderFooter && <HeaderLayout />}
 			{children}
-			<FooterLayout />
+			{showHeaderFooter && <FooterLayout />}
 		</Container>
 	)
 }
