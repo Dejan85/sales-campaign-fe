@@ -6,5 +6,6 @@ export const colors = css`
 	--third-color: #2598d6;
 	--dark-grey: #363636;
 	--grey: grey;
+	--light-grey: #e5e5e7;
 	--light-blue: #e9f2f4;
 `

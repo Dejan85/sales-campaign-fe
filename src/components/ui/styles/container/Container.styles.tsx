@@ -10,7 +10,9 @@ import {
 	relative,
 	formWrapper,
 	inputWrapper,
-	buttonWrapper
+	buttonWrapper,
+	table,
+	tableRow
 } from './Container.themes'
 
 interface ContainerI {
@@ -25,6 +27,8 @@ interface ContainerI {
 		| 'formWrapper'
 		| 'inputWrapper'
 		| 'buttonWrapper'
+		| 'table'
+		| 'tableRow'
 }
 
 const styles = {
@@ -37,6 +41,8 @@ const styles = {
 	relative,
 	formWrapper,
 	inputWrapper,
-	buttonWrapper
+	buttonWrapper,
+	table,
+	tableRow
 }
 export const Container = styled.div(({ theme }: ContainerI) => styles[theme])

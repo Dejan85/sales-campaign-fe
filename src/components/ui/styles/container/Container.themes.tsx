@@ -66,3 +66,20 @@ export const buttonWrapper = css`
 	gap: var(--gp-50);
 	padding-top: var(--pd-t-20px);
 `
+
+export const table = css`
+	margin-top: var(--pd-70);
+	margin-left: var(--pd-50);
+`
+
+export const tableRow = css`
+	display: grid;
+	grid-template-columns: repeat(8, minmax(25px, 150px));
+	grid-template-rows: repeat(auto-fill);
+	/* grid-row-gap: 120px; */
+	/* grid-column-gap: 20px; */
+	/* margin-top: 70px;
+	margin-left: 30px; */
+
+	/* outline: 1px solid red; */
+`
