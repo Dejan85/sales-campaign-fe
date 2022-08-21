@@ -20,19 +20,22 @@ const Campaign: NextPage = (): JSX.Element => {
 	const { campaign } = useCampaignsBySlugQuery(slug)
 
 	return (
-		<Container theme="secondary">
-			<Section theme="primary">
-				<MainHeadingLayout />
-				<PriceLayout />
-				<SpecialOfferLayout />
-				<CountdownTimer countdownTimestampMs={1660960800000} setCountdownExpire={setCountdownExpire} />
-				<CheckInLinkLayout />
-			</Section>
+		<>
+			<Container theme="secondary">
+				<Section theme="primary">
+					<MainHeadingLayout />
+					<PriceLayout />
+					<SpecialOfferLayout />
 
-			<Section theme="imageSection">
-				<ImageLayout />
-			</Section>
-		</Container>
+					<CountdownTimer countdownTimestampMs={1660960800000} setCountdownExpire={setCountdownExpire} />
+					<CheckInLinkLayout />
+				</Section>
+
+				<Section theme="imageSection">
+					<ImageLayout />
+				</Section>
+			</Container>
+		</>
 	)
 }
 

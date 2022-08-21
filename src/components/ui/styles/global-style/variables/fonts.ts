@@ -13,6 +13,8 @@ export const fontsSizes = css`
 	--fs-40: 40px;
 	--fs-50: 50px;
 	--fs-60: 60px;
+
+	--fs-input: 16px;
 `
 
 export const fontWeights = css`

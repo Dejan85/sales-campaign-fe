@@ -13,7 +13,6 @@ export const price = css`
 	display: flex;
 	align-items: center;
 	gap: var(--gp-10);
-	padding-top: var(--pd-t-70px);
 `
 
 export const specialOffer = css`

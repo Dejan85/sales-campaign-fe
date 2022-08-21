@@ -6,7 +6,7 @@ import {
 	secondary,
 	wrapper,
 	linkWrapper,
-	imageWrapper,
+	relative,
 	formWrapper,
 	inputWrapper,
 	buttonWrapper
@@ -19,7 +19,7 @@ interface ContainerI {
 		| 'secondary'
 		| 'wrapper'
 		| 'linkWrapper'
-		| 'imageWrapper'
+		| 'relative'
 		| 'formWrapper'
 		| 'inputWrapper'
 		| 'buttonWrapper'
@@ -31,7 +31,7 @@ const styles = {
 	secondary,
 	wrapper,
 	linkWrapper,
-	imageWrapper,
+	relative,
 	formWrapper,
 	inputWrapper,
 	buttonWrapper

@@ -14,6 +14,7 @@ export const secondary = css`
 	font-style: italic;
 	font-family: var(--primary-font);
 `
+
 export const third = css`
 	${primary}
 `
@@ -40,4 +41,11 @@ export const timerText = css`
 	text-transform: uppercase;
 	color: var(--dark-grey);
 	font-weight: var(--fw-500);
+`
+
+export const error = css`
+	position: absolute;
+	color: red;
+	left: 24px;
+	bottom: -22px;
 `

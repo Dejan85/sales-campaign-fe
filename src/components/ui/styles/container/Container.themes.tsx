@@ -18,6 +18,7 @@ export const secondary = css`
 	width: var(--wd-1440);
 	margin: var(--margin-center);
 	padding: var(--pd-lr-10);
+	padding-top: var(--pd-t-70px);
 `
 
 export const wrapper = css`
@@ -31,8 +32,9 @@ export const linkWrapper = css`
 	padding-top: var(--pd-t-50px);
 `
 
-export const imageWrapper = css`
+export const relative = css`
 	display: flex;
+	flex-direction: column;
 	position: relative;
 	width: var(--wd-100-per);
 `

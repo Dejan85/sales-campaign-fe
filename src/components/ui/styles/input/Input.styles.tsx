@@ -1,9 +1,43 @@
+import { css } from '@emotion/react'
 import styled from '@emotion/styled'
 import { primary } from './Input.themes'
+import { FieldError } from 'react-hook-form'
+
+export type InputThemeT = 'primary'
 
 interface InputI {
-	theme: 'primary'
+	theme: InputThemeT
+	errors?: FieldError
+}
+
+const inputBorder = (errors?: FieldError) => {
+	if (errors) {
+		return css`
+			outline: 1px solid red;
+
+			&:focus {
+				outline: 1px solid red;
+			}
+
+			&::placeholder {
+				color: red;
+			}
+		`
+	} else {
+		return css`
+			border: none;
+			outline: none;
+			&:focus {
+				border: none;
+				outline: none;
+			}
+
+			&::placeholder {
+				color: var(--grey);
+			}
+		`
+	}
 }
 
 const styles = { primary }
-export const Input = styled.input(({ theme }: InputI) => styles[theme])
+export const Input = styled.input(({ theme, errors }: InputI) => [styles[theme], inputBorder(errors)])
