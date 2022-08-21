@@ -12,6 +12,8 @@ export interface IFormInput {
 	model: string
 	quantity: string
 	message: string
+	terms: string
+	wishDiscount: string
 }
 
 const schema = yup.object().shape({
@@ -19,23 +21,25 @@ const schema = yup.object().shape({
 	phone: yup.string().required('Telefon je obavezan'),
 	email: yup.string().required('Email je obavezan'),
 	address: yup.string().required('Adresa je obavezna'),
-	model: yup.string().required('Niste odabrali model'),
+	model: yup
+		.string()
+		.test('is-model-checked', 'Niste odabrali model', value => value !== 'nothingSelect')
+		.required(),
 	quantity: yup.string().required('Niste odabrali kolicinu'),
+	terms: yup.string(),
+	wishDiscount: yup.string(),
 	message: yup.string()
 })
 
 export const Form: React.FC = (): JSX.Element => {
-	const {
-		register,
-		handleSubmit,
-		formState: { errors, dirtyFields }
-	} = useForm<IFormInput>({
+	const { register, handleSubmit, formState } = useForm<IFormInput>({
 		resolver: yupResolver(schema)
 	})
 	const onSubmit: SubmitHandler<IFormInput> = (data, e) => {
 		console.log(data)
-		console.log('test dirtyFields', dirtyFields)
 	}
 
-	return <FormLayout register={register} handleSubmit={handleSubmit} onSubmit={onSubmit} errors={errors} />
+	console.log('test formState', formState)
+
+	return <FormLayout register={register} handleSubmit={handleSubmit} onSubmit={onSubmit} formState={formState} />
 }

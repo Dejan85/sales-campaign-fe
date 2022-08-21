@@ -10,10 +10,11 @@ interface InputI {
 	errors?: FieldError
 }
 
-const inputBorder = (errors?: FieldError) => {
+export const inputBorder = (errors?: FieldError) => {
 	if (errors) {
 		return css`
 			outline: 1px solid red;
+			color: red;
 
 			&:focus {
 				outline: 1px solid red;
