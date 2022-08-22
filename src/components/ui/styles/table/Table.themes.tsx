@@ -12,4 +12,5 @@ export const column = css`
 export const cell = css`
 	padding: var(--pd-10);
 	border: 1px solid var(--light-grey);
+	cursor: pointer;
 `

@@ -7,6 +7,8 @@ interface CampaignsPageLayoutI {
 }
 
 export const CampaignsPageLayout: React.FC<CampaignsPageLayoutI> = ({ campaigns }): JSX.Element => {
+	console.log('test campaigns', campaigns)
+
 	return (
 		<>
 			<Table campaigns={campaigns} />

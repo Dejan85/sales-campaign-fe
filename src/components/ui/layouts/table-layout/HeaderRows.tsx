@@ -6,7 +6,7 @@ export interface TableLayoutI {
 	columns: string[]
 }
 
-export const HeaderRow: React.FC<TableLayoutI> = ({ columns }): JSX.Element => {
+export const HeaderRows: React.FC<TableLayoutI> = ({ columns }): JSX.Element => {
 	return (
 		<Container theme="tableRow">
 			{columns.map((item, index) => {
