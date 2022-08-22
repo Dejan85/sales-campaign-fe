@@ -4,21 +4,23 @@ import React from 'react'
 
 export interface BodyRowI {
 	rows: string[] | number[]
+	editHandler: (id: number) => void
 }
 
-export const BodyRows: React.FC<BodyRowI> = ({ rows }): JSX.Element => {
+export const BodyRows: React.FC<BodyRowI> = ({ rows, editHandler }): JSX.Element => {
 	return (
-		<Container theme="tableRow">
-			{rows.map((item, index) => {
+		<Container theme="tableBody">
+			{rows.map((row, index) => {
 				return (
 					<Column
 						key={index}
 						theme="primary"
 						onClick={() => {
-							console.log('test rows', rows[0])
+							const rowsId = rows[0] as number
+							editHandler(rowsId)
 						}}
 					>
-						<Row theme="cell">{rows[index]}</Row>
+						<Row theme="cell">{row}</Row>
 					</Column>
 				)
 			})}

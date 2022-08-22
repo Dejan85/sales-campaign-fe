@@ -11,6 +11,11 @@ export const reducer = (state: any, action: { type: InitialStateEnum; payload: I
 				...state,
 				page: action.payload
 			}
+		case 'editCampaign':
+			return {
+				...state,
+				page: action.payload
+			}
 		case 'orders':
 			return {
 				...state,

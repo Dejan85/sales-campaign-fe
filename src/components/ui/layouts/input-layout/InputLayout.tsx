@@ -1,4 +1,4 @@
-import { IFormInput } from 'components/frontend/form/Form'
+import { IFormInput } from 'components/frontend/form/orders/OrdersForm'
 import { Container } from 'components/ui/styles/container'
 import { Input } from 'components/ui/styles/input'
 import { InputThemeT } from 'components/ui/styles/input/Input.styles'

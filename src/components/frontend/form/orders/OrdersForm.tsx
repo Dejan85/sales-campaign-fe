@@ -1,4 +1,4 @@
-import { FormLayout } from 'components/ui/layouts/form-layout'
+import { OrdersFormLayout } from 'components/ui/layouts/form-layout/orders'
 import React from 'react'
 import { useForm, SubmitHandler } from 'react-hook-form'
 import * as yup from 'yup'
@@ -31,7 +31,7 @@ const schema = yup.object().shape({
 	message: yup.string()
 })
 
-export const Form: React.FC = (): JSX.Element => {
+export const OrdersForm: React.FC = (): JSX.Element => {
 	const { register, handleSubmit, formState } = useForm<IFormInput>({
 		resolver: yupResolver(schema)
 	})
@@ -39,5 +39,5 @@ export const Form: React.FC = (): JSX.Element => {
 		console.log(data)
 	}
 
-	return <FormLayout register={register} handleSubmit={handleSubmit} onSubmit={onSubmit} formState={formState} />
+	return <OrdersFormLayout register={register} handleSubmit={handleSubmit} onSubmit={onSubmit} formState={formState} />
 }

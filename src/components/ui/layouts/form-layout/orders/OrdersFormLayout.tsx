@@ -1,4 +1,4 @@
-import { IFormInput } from 'components/frontend/form/Form'
+import { IFormInput } from 'components/frontend/form/orders/OrdersForm'
 import { Button } from 'components/ui/styles/button'
 import { Container } from 'components/ui/styles/container'
 import { Input } from 'components/ui/styles/input'
@@ -6,17 +6,17 @@ import { Textarea } from 'components/ui/styles/text-area'
 import { Paragraph } from 'components/ui/styles/typography/paragraph'
 import React, { useEffect, useState } from 'react'
 import { UseFormRegister, UseFormHandleSubmit, SubmitHandler, FormState, UseFormGetValues } from 'react-hook-form'
-import { SelectLayout } from '../select-layout'
+import { SelectLayout } from '../../select-layout'
 import { termsOptions } from './const'
 
-interface FormLayoutI {
+interface OrdersFormLayoutI {
 	register: UseFormRegister<IFormInput>
 	handleSubmit: UseFormHandleSubmit<IFormInput>
 	onSubmit: SubmitHandler<IFormInput>
 	formState: FormState<IFormInput>
 }
 
-export const FormLayout: React.FC<FormLayoutI> = ({
+export const OrdersFormLayout: React.FC<OrdersFormLayoutI> = ({
 	register,
 	handleSubmit,
 	onSubmit,

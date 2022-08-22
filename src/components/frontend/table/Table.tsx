@@ -1,24 +1,30 @@
 import { TableLayout } from 'components/ui/layouts/table-layout'
+import { NavContext } from 'context/dashboard/nav/navContext'
+import { InitialStateEnum } from 'context/dashboard/nav/types'
 import { CampaignsI } from 'queries/campaigns/types'
-import React from 'react'
+import { useCampaignByIdQuery } from 'queries/campaigns/useCampaignsQuery'
+import React, { useContext } from 'react'
 
 interface TableI {
 	campaigns: CampaignsI[] | undefined
 }
 
 export const Table: React.FC<TableI> = ({ campaigns }): JSX.Element => {
+	const { setPage, page } = useContext(NavContext)
+
+	const { setCampaignById } = useCampaignByIdQuery()
 	const columns: string[] = []
-	const rows: string[] = []
 
 	campaigns?.forEach(campaign => {
 		Object.keys(campaign).forEach(key => {
 			columns.push(key)
 		})
-
-		Object.values(campaign).forEach(value => {
-			rows.push(value)
-		})
 	})
 
-	return <TableLayout columns={[...new Set(columns)]} rows={rows} />
+	const editHandler = (id: number) => {
+		setCampaignById(id)
+		setPage(InitialStateEnum.editCampaign)
+	}
+
+	return <TableLayout columns={[...new Set(columns)]} campaigns={campaigns} editHandler={editHandler} />
 }

@@ -14,14 +14,14 @@
     "react-dom": "18.2.0",
     "react-hook-form": "^7.34.2",
     "react-query": "^3.39.2",
-    "yup": "^0.32.11"
+    "yup": "0.32.9"
   },
   "devDependencies": {
     "@emotion/babel-plugin": "11.9.2",
     "@next/bundle-analyzer": "12.1.6",
     "@types/node": "18.0.0",
     "@types/react": "18.0.14",
-    "@types/yup": "^0.32.0",
+    "@types/yup": "0.29.13",
     "@typescript-eslint/eslint-plugin": "5.29.0",
     "@typescript-eslint/parser": "5.29.0",
     "cross-env": "7.0.3",

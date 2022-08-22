@@ -4,6 +4,7 @@ export interface InitialStateI {
 
 export enum InitialStateEnum {
 	campaigns = 'campaigns',
+	editCampaign = 'editCampaign',
 	orders = 'orders'
 }
 

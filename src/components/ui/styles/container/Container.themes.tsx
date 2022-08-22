@@ -21,6 +21,12 @@ export const secondary = css`
 	padding-top: var(--pd-t-70px);
 `
 
+export const fullWidthBg = css`
+	${secondary}
+	width:100%;
+	background-color: var(--light-blue);
+`
+
 export const dashboard = css`
 	display: flex;
 	justify-content: flex-start;
@@ -72,7 +78,7 @@ export const table = css`
 	margin-left: var(--pd-50);
 `
 
-export const tableRow = css`
+export const tableHeader = css`
 	display: grid;
 	grid-template-columns: repeat(8, minmax(25px, 150px));
 	grid-template-rows: repeat(auto-fill);
@@ -82,4 +88,8 @@ export const tableRow = css`
 	margin-left: 30px; */
 
 	/* outline: 1px solid red; */
+`
+
+export const tableBody = css`
+	${tableHeader}
 `

@@ -1,6 +1,6 @@
 import { Layout } from 'components/ui/layouts/layout'
 import { globalStyles } from 'components/ui/styles/global-style/GlobalStyle'
-import { NavProvider } from 'context/dashboard/navContext'
+import { NavProvider } from 'context/dashboard/nav/navContext'
 import type { AppProps } from 'next/app'
 import { useRef } from 'react'
 import { Hydrate, QueryClient, QueryClientProvider } from 'react-query'

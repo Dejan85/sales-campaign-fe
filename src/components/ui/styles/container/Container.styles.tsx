@@ -4,6 +4,7 @@ import {
 	primary,
 	primaryBg,
 	secondary,
+	fullWidthBg,
 	dashboard,
 	wrapper,
 	linkWrapper,
@@ -12,7 +13,8 @@ import {
 	inputWrapper,
 	buttonWrapper,
 	table,
-	tableRow
+	tableHeader,
+	tableBody
 } from './Container.themes'
 
 interface ContainerI {
@@ -20,6 +22,7 @@ interface ContainerI {
 		| 'primary'
 		| 'primaryBg'
 		| 'secondary'
+		| 'fullWidthBg'
 		| 'dashboard'
 		| 'wrapper'
 		| 'linkWrapper'
@@ -28,13 +31,15 @@ interface ContainerI {
 		| 'inputWrapper'
 		| 'buttonWrapper'
 		| 'table'
-		| 'tableRow'
+		| 'tableHeader'
+		| 'tableBody'
 }
 
 const styles = {
 	primary,
 	primaryBg,
 	secondary,
+	fullWidthBg,
 	dashboard,
 	wrapper,
 	linkWrapper,
@@ -43,6 +48,7 @@ const styles = {
 	inputWrapper,
 	buttonWrapper,
 	table,
-	tableRow
+	tableHeader,
+	tableBody
 }
 export const Container = styled.div(({ theme }: ContainerI) => styles[theme])

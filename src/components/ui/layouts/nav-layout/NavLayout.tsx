@@ -1,6 +1,6 @@
 import { Nav } from 'components/ui/styles/nav'
 import { Paragraph } from 'components/ui/styles/typography/paragraph'
-import { InitialStateEnum } from 'context/dashboard/types'
+import { InitialStateEnum } from 'context/dashboard/nav/types'
 import { NextPage } from 'next'
 import React from 'react'
 

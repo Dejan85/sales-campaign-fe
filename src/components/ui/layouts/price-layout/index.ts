@@ -1,2 +1,2 @@
-import { PriceArticle } from './PriceLayout'
-export { PriceArticle }
+import { PriceLayout } from './PriceLayout'
+export { PriceLayout }

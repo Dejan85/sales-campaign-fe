@@ -9,10 +9,18 @@ export interface CampaignsI {
 	slug: string
 }
 
+export type campaignsT = CampaignsI[] | undefined
+
 export interface CampaignsQueryReturnI {
-	campaigns: CampaignsI[] | undefined
+	campaigns: campaignsT
 }
 
 export interface CampaignsBySlugReturnI {
-	campaign: CampaignsI[] | undefined
+	campaign: campaignsT
+}
+
+export interface useSetCampaignByIdQueryReturnI {
+	setCampaignById: (id: number) => void
+	getCampaignForEdit: () => campaignsT
+	campaign: CampaignsI | undefined
 }

@@ -1,5 +1,5 @@
-import { IFormInput } from 'components/frontend/form/Form'
-import { Select, Option } from 'components/ui/styles/select'
+import { IFormInput } from 'components/frontend/form/orders/OrdersForm'
+import { Select } from 'components/ui/styles/select'
 import { SelectThemeT } from 'components/ui/styles/select/Select.styles'
 import { ChangeEvent } from 'react'
 import { UseFormRegister, FieldError } from 'react-hook-form'

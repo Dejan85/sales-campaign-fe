@@ -1,4 +1,4 @@
-import { getCampaign, getCampaignsBySlug } from 'api/methods'
+import { getCampaignsBySlug } from 'api/methods'
 import { CountdownTimer } from 'components/frontend/countdown-timer'
 import { CheckInLinkLayout } from 'components/ui/layouts/check-in-link-layout'
 import { ImageLayout } from 'components/ui/layouts/image-layout'
@@ -6,12 +6,13 @@ import { MainHeadingLayout } from 'components/ui/layouts/main-heading-layout'
 import { Section } from 'components/ui/styles/section'
 import { GetServerSideProps, NextPage } from 'next'
 import { useRouter } from 'next/router'
-import { CampaignsI, CampaignsQueryKeys, useCampaignsBySlugQuery } from 'queries/campaigns/useCampaignsQuery'
+import { CampaignsQueryKeys, useCampaignsBySlugQuery } from 'queries/campaigns/useCampaignsQuery'
 import React, { useState } from 'react'
 import { dehydrate, DehydratedState, QueryClient } from 'react-query'
 import { SpecialOfferLayout } from 'components/ui/layouts/special-offer-layout'
 import { PriceLayout } from 'components/ui/layouts/price-layout/PriceLayout'
 import { Container } from 'components/ui/styles/container'
+import { CampaignsI } from 'queries/campaigns/types'
 
 const Campaign: NextPage = (): JSX.Element => {
 	const { query } = useRouter()

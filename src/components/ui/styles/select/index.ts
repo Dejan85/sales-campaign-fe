@@ -1,2 +1,2 @@
-import { Select, Option } from './Select.styles'
-export { Select, Option }
+import { Select } from './Select.styles'
+export { Select }
