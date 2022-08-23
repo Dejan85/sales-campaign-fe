@@ -17,9 +17,19 @@ export const getCampaignsBySlug = (slug: string) =>
 	})
 
 ///////////////////////////////////// POST METHODS ///////////////////////////////////////////
+
 // create campaign
 export const createCampaign = (data: CreateFormI) =>
 	FetchWrapper.post({
 		route: API_ROUTES.createCampaign(),
+		data
+	})
+
+///////////////////////////////////// PUT/PATCH METHODS ///////////////////////////////////////////
+
+// update campaign
+export const updateCampaign = (id: number, data: CreateFormI) =>
+	FetchWrapper.patch({
+		route: API_ROUTES.updateCampaign(id),
 		data
 	})

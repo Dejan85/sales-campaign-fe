@@ -7,6 +7,10 @@ export const API_ROUTES = {
 	getCampaigns: () => `${API_URL}/campaigns`,
 	getCampaignsBySlug: (slug: string) => `${API_URL}/campaigns/${slug}`,
 
-	///////////////////////////////////// GET ROUTES ///////////////////////////////////////////
-	createCampaign: () => `${API_URL}/campaigns`
+	///////////////////////////////////// POST ROUTES ///////////////////////////////////////////
+
+	createCampaign: () => `${API_URL}/campaigns`,
+
+	///////////////////////////////////// PUT/PATCH ROUTES ///////////////////////////////////////////
+	updateCampaign: (id: number) => `${API_URL}/campaigns/${id}`
 }

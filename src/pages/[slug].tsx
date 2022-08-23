@@ -7,7 +7,6 @@ import { Section } from 'components/ui/styles/section'
 import { GetServerSideProps, NextPage } from 'next'
 import { useRouter } from 'next/router'
 import { CampaignsQueryKeys, useCampaignsBySlugQuery } from 'queries/campaigns/useCampaignsQuery'
-import React, { useState } from 'react'
 import { dehydrate, DehydratedState, QueryClient } from 'react-query'
 import { SpecialOfferLayout } from 'components/ui/layouts/special-offer-layout'
 import { PriceLayout } from 'components/ui/layouts/price-layout/PriceLayout'
@@ -17,11 +16,8 @@ import { CampaignsI } from 'queries/campaigns/types'
 const Campaign: NextPage = (): JSX.Element => {
 	const { query } = useRouter()
 	const slug = query.slug as string
-	const [countdownExpire, setCountdownExpire] = useState<boolean>(false)
 	const { campaign } = useCampaignsBySlugQuery(slug)
 	const countdownTimestampMs = campaign?.expireDate || 0
-
-	console.log('test expireDate', countdownTimestampMs)
 
 	return (
 		<>
@@ -31,7 +27,7 @@ const Campaign: NextPage = (): JSX.Element => {
 					<PriceLayout />
 					<SpecialOfferLayout />
 
-					<CountdownTimer countdownTimestampMs={countdownTimestampMs} setCountdownExpire={setCountdownExpire} />
+					<CountdownTimer countdownTimestampMs={countdownTimestampMs} />
 					<CheckInLinkLayout slug="therapy-air-smart" />
 				</Section>
 
@@ -46,7 +42,7 @@ const Campaign: NextPage = (): JSX.Element => {
 					<PriceLayout />
 					<SpecialOfferLayout />
 
-					<CountdownTimer countdownTimestampMs={countdownTimestampMs} setCountdownExpire={setCountdownExpire} />
+					<CountdownTimer countdownTimestampMs={countdownTimestampMs} />
 					<CheckInLinkLayout slug="therapy-air-iOn-white" />
 				</Section>
 
@@ -61,7 +57,7 @@ const Campaign: NextPage = (): JSX.Element => {
 					<PriceLayout />
 					<SpecialOfferLayout />
 
-					<CountdownTimer countdownTimestampMs={countdownTimestampMs} setCountdownExpire={setCountdownExpire} />
+					<CountdownTimer countdownTimestampMs={countdownTimestampMs} />
 					<CheckInLinkLayout slug="therapy-air-iOn-black" />
 				</Section>
 

@@ -9,7 +9,7 @@ import { CampaignsQueryKeys } from 'queries/campaigns/useCampaignsQuery'
 import { useQueryClient } from 'react-query'
 import { InitialStateEnum } from 'context/dashboard/nav/types'
 
-const schema = yup.object().shape({
+export const schema = yup.object().shape({
 	name: yup.string().required('Name is required'),
 	expireDate: yup.number().required('Expire Date is required').nullable(),
 	activity: yup.boolean(),

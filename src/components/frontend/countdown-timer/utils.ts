@@ -1,6 +1,6 @@
 import dayjs, { Dayjs } from 'dayjs'
 import { defaultRemainingTime } from './const'
-import { DefaultRemainingTimeI } from './types'
+import { DefaultRemainingTimeI, PushT } from './types'
 
 const padWithZeros = (number: number, minLength: number) => {
 	const numberString = number.toString()
@@ -25,12 +25,14 @@ const getRemainingDays = (nowDayjs: Dayjs, timestampDayJs: Dayjs): string => {
 	return padWithZeros(days, 2)
 }
 
-const getRemainingTimeUtilMsTimestamp = (timestampMs: number): DefaultRemainingTimeI => {
+const getRemainingTimeUtilMsTimestamp = (timestampMs: number, push: PushT): DefaultRemainingTimeI => {
 	const timestampDayJs: Dayjs = dayjs(timestampMs)
 	const nowDayjs: Dayjs = dayjs()
 
-	// sa ovim uslovom mozes da pushujes kada istekne timer
-	if (timestampDayJs.isBefore(nowDayjs)) return defaultRemainingTime
+	if (timestampDayJs.isBefore(nowDayjs)) {
+		push('/')
+		return defaultRemainingTime
+	}
 
 	return {
 		seconds: getRemainingSeconds(nowDayjs, timestampDayJs),
@@ -40,5 +42,5 @@ const getRemainingTimeUtilMsTimestamp = (timestampMs: number): DefaultRemainingT
 	}
 }
 
-export const updateRemainingTimer = (timestampMs: number): DefaultRemainingTimeI =>
-	getRemainingTimeUtilMsTimestamp(timestampMs)
+export const updateRemainingTimer = (timestampMs: number, push: PushT): DefaultRemainingTimeI =>
+	getRemainingTimeUtilMsTimestamp(timestampMs, push)

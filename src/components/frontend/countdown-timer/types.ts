@@ -1,6 +1,7 @@
+import { Url } from 'url'
+
 export interface CountdownTimerI {
 	countdownTimestampMs: number
-	setCountdownExpire: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 export interface DefaultRemainingTimeI {
@@ -9,3 +10,5 @@ export interface DefaultRemainingTimeI {
 	hours: string
 	days: string
 }
+
+export type PushT = (url: string, as?: Url | undefined, options?: any) => Promise<boolean>

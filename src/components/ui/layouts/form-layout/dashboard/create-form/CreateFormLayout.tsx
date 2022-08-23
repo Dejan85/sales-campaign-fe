@@ -1,13 +1,10 @@
 import { CreateFormI } from 'components/frontend/form/dashboard/create-form/types'
-import { IFormInput } from 'components/frontend/form/orders/OrdersForm'
 import { DatePickerLayout } from 'components/ui/layouts/date-picker'
 import { InputLayout } from 'components/ui/layouts/input-layout'
 import { SelectLayout } from 'components/ui/layouts/select-layout'
 import { Button } from 'components/ui/styles/button'
 import { Container } from 'components/ui/styles/container'
-import { Input } from 'components/ui/styles/input'
-import { Select } from 'components/ui/styles/select'
-import React, { useEffect, useState } from 'react'
+import { CampaignsI } from 'queries/campaigns/types'
 import { UseFormRegister, UseFormHandleSubmit, SubmitHandler, FormState, UseFormSetValue } from 'react-hook-form'
 
 interface FormLayoutI {

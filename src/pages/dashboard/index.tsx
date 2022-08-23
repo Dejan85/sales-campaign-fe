@@ -1,7 +1,7 @@
 import { getCampaigns } from 'api/methods'
 import { CampaignsPageLayout } from 'components/ui/layouts/campaigns-page-layout'
 import { CreateCampaignLayout } from 'components/ui/layouts/create-campaign-layout'
-import { EditCampaignLayout } from 'components/ui/layouts/edit-campaign-page-layout'
+import { UpdateCampaignLayout } from 'components/ui/layouts/update-campaign-layout'
 import { NavLayout } from 'components/ui/layouts/nav-layout'
 import { OrdersPageLayout } from 'components/ui/layouts/orders-page-layout'
 import { Container } from 'components/ui/styles/container'
@@ -24,7 +24,7 @@ const Dashboard: NextPage = (): JSX.Element => {
 			<NavLayout setPage={setPage} />
 			{page === InitialStateEnum.campaigns && <CampaignsPageLayout campaigns={campaigns} setPage={setPage} />}
 			{page === InitialStateEnum.createCampaign && <CreateCampaignLayout setPage={setPage} />}
-			{page === InitialStateEnum.editCampaign && <EditCampaignLayout />}
+			{page === InitialStateEnum.editCampaign && <UpdateCampaignLayout setPage={setPage} />}
 			{page === InitialStateEnum.orders && <OrdersPageLayout />}
 		</Container>
 	)

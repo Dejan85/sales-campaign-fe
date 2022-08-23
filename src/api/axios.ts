@@ -26,16 +26,16 @@ interface GetI {
 
 interface PutI {
 	route: string
-	data: object
-	headers: IncomingHttpHeaders
-	config: object
+	data: CreateFormI
+	headers?: IncomingHttpHeaders
+	config?: object
 }
 
 interface PatchI {
 	route: string
-	data: object
-	headers: IncomingHttpHeaders
-	config: object
+	data: CreateFormI
+	headers?: IncomingHttpHeaders
+	config?: object
 }
 
 interface PostI {
@@ -74,7 +74,7 @@ export class FetchWrapper {
 		}
 	}
 
-	static put({ route, data = {}, headers = {}, config = {} }: PutI) {
+	static put({ route, data, headers = {}, config = {} }: PutI) {
 		let finalConfig = {
 			...config,
 			headers: {
@@ -87,7 +87,7 @@ export class FetchWrapper {
 		return axiosClient.put(route, data, finalConfig)
 	}
 
-	static patch({ route, data = {}, headers = {}, config = {} }: PatchI) {
+	static patch({ route, data, headers = {}, config = {} }: PatchI) {
 		let finalConfig = {
 			...config,
 			headers: {
