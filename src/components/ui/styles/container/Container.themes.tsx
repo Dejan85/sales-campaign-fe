@@ -29,8 +29,19 @@ export const fullWidthBg = css`
 
 export const flexColumn = css`
 	display: flex;
+	position: relative;
 	flex-direction: column;
 	width: 100%;
+`
+
+export const flexCenterAbsolute = css`
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	z-index: -1;
 `
 
 export const dashboard = css`
@@ -91,7 +102,7 @@ export const table = css`
 
 export const tableHeader = css`
 	display: grid;
-	grid-template-columns: repeat(8, minmax(25px, 150px));
+	grid-template-columns: 50px 150px 120px 70px 150px 200px 200px 200px 200px 200px 200px;
 	grid-template-rows: repeat(auto-fill);
 `
 

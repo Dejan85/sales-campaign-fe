@@ -19,6 +19,9 @@ const Campaign: NextPage = (): JSX.Element => {
 	const slug = query.slug as string
 	const [countdownExpire, setCountdownExpire] = useState<boolean>(false)
 	const { campaign } = useCampaignsBySlugQuery(slug)
+	const countdownTimestampMs = campaign?.expireDate || 0
+
+	console.log('test expireDate', countdownTimestampMs)
 
 	return (
 		<>
@@ -28,7 +31,7 @@ const Campaign: NextPage = (): JSX.Element => {
 					<PriceLayout />
 					<SpecialOfferLayout />
 
-					<CountdownTimer countdownTimestampMs={1660960800000} setCountdownExpire={setCountdownExpire} />
+					<CountdownTimer countdownTimestampMs={countdownTimestampMs} setCountdownExpire={setCountdownExpire} />
 					<CheckInLinkLayout slug="therapy-air-smart" />
 				</Section>
 
@@ -43,7 +46,7 @@ const Campaign: NextPage = (): JSX.Element => {
 					<PriceLayout />
 					<SpecialOfferLayout />
 
-					<CountdownTimer countdownTimestampMs={1660960800000} setCountdownExpire={setCountdownExpire} />
+					<CountdownTimer countdownTimestampMs={countdownTimestampMs} setCountdownExpire={setCountdownExpire} />
 					<CheckInLinkLayout slug="therapy-air-iOn-white" />
 				</Section>
 
@@ -58,7 +61,7 @@ const Campaign: NextPage = (): JSX.Element => {
 					<PriceLayout />
 					<SpecialOfferLayout />
 
-					<CountdownTimer countdownTimestampMs={1660960800000} setCountdownExpire={setCountdownExpire} />
+					<CountdownTimer countdownTimestampMs={countdownTimestampMs} setCountdownExpire={setCountdownExpire} />
 					<CheckInLinkLayout slug="therapy-air-iOn-black" />
 				</Section>
 
@@ -85,7 +88,8 @@ export const getServerSideProps: GetServerSideProps = async ({ params, res }) =>
 		})
 	)
 	const campaigns: CampaignsI[] | undefined = await queryClient.getQueryData(CampaignsQueryKeys.campaignsBySlug)
-	const activeCampaign = !!campaigns?.length ? campaigns?.filter(({ active }) => active) : []
+
+	const activeCampaign = campaigns?.filter(({ activity }) => activity)
 
 	if (!!!activeCampaign?.length) {
 		return {

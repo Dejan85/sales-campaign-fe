@@ -1,3 +1,4 @@
+import { CreateFormI } from 'components/frontend/form/dashboard/create-form/types'
 import { FetchWrapper } from './axios'
 import { API_ROUTES } from './routes'
 
@@ -16,3 +17,9 @@ export const getCampaignsBySlug = (slug: string) =>
 	})
 
 ///////////////////////////////////// POST METHODS ///////////////////////////////////////////
+// create campaign
+export const createCampaign = (data: CreateFormI) =>
+	FetchWrapper.post({
+		route: API_ROUTES.createCampaign(),
+		data
+	})

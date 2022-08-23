@@ -1,4 +1,5 @@
 import axios, { AxiosRequestConfig } from 'axios/index'
+import { CreateFormI } from 'components/frontend/form/dashboard/create-form/types'
 import { IncomingHttpHeaders } from 'http2'
 
 const axiosClient: any = axios.create()
@@ -39,10 +40,10 @@ interface PatchI {
 
 interface PostI {
 	route: string
-	data: object
-	headers: IncomingHttpHeaders
-	config: any
-	needsAuth: boolean
+	data?: CreateFormI
+	headers?: IncomingHttpHeaders
+	config?: any
+	needsAuth?: boolean
 	resetJwtToken?: string
 }
 
@@ -69,7 +70,7 @@ export class FetchWrapper {
 
 			return res.data.data
 		} catch (err) {
-			return err
+			console.log('test err', err)
 		}
 	}
 
@@ -98,11 +99,7 @@ export class FetchWrapper {
 		return axiosClient.patch(route, data, finalConfig)
 	}
 
-	static post({ route, data = {}, headers = {}, config = {}, needsAuth = false, resetJwtToken }: PostI) {
-		const formData = new FormData()
-		Object.entries(data).map(item => {
-			formData.append(item[0], item[1])
-		})
+	static post({ route, data, headers = {}, config = {}, needsAuth = false, resetJwtToken }: PostI) {
 		config = {
 			...config,
 			headers: {

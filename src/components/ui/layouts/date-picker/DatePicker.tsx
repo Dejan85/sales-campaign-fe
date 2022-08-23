@@ -27,11 +27,10 @@ export const DatePickerLayout: React.FC<DatePickerLayoutI> = ({
 	label
 }): JSX.Element => {
 	const [startDate, setStartDate] = useState<Date | null>(null)
-
-	const unixDateFormat = startDate && (Math.floor(new Date(startDate).getTime() / 1000) as number)
+	const timestamp = startDate && new Date(startDate).getTime()
 
 	useEffect(() => {
-		setValue('date', unixDateFormat)
+		setValue('expireDate', timestamp)
 	}, [startDate])
 
 	return (
@@ -42,7 +41,7 @@ export const DatePickerLayout: React.FC<DatePickerLayoutI> = ({
 				placeholderText={placeholder}
 				selected={startDate}
 				onChange={date => setStartDate(date)}
-				customInput={<Input theme={theme} {...register('date')} errors={startDate ? undefined : errors} />}
+				customInput={<Input theme={theme} {...register('expireDate')} errors={startDate ? undefined : errors} />}
 			/>
 		</Container>
 	)

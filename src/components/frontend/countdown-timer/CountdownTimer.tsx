@@ -4,7 +4,6 @@ import { updateRemainingTimer } from './utils'
 import { CountdownTimerI, DefaultRemainingTimeI } from './types'
 import { CountdownTimerLayout } from 'components/ui/layouts/countdown-timer-layout'
 import { useRouter } from 'next/router'
-import dayjs from 'dayjs'
 
 export const CountdownTimer: React.FC<CountdownTimerI> = ({
 	countdownTimestampMs,

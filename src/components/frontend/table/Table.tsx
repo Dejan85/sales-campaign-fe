@@ -1,16 +1,16 @@
 import { TableLayout } from 'components/ui/layouts/table-layout'
 import { NavContext } from 'context/dashboard/nav/navContext'
 import { InitialStateEnum } from 'context/dashboard/nav/types'
-import { CampaignsI } from 'queries/campaigns/types'
+import { CampaignsI, campaignsT } from 'queries/campaigns/types'
 import { useCampaignByIdQuery } from 'queries/campaigns/useCampaignsQuery'
 import React, { useContext } from 'react'
 
 interface TableI {
-	campaigns: CampaignsI[] | undefined
+	campaigns: campaignsT
 }
 
 export const Table: React.FC<TableI> = ({ campaigns }): JSX.Element => {
-	const { setPage, page } = useContext(NavContext)
+	const { setPage } = useContext(NavContext)
 
 	const { setCampaignById } = useCampaignByIdQuery()
 	const columns: string[] = []

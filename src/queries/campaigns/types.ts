@@ -1,12 +1,15 @@
 export interface CampaignsI {
 	id: number
-	active: boolean
-	dateFrom: string
-	dateTo: string
 	name: string
-	price: number
-	promotionsGroup: string
+	expireDate: number | null
+	activity: boolean
 	slug: string
+	therapyAirSmartDiscountPrice: string
+	therapyAiriOnWhiteDiscountPrice: string
+	therapyAiriOnBlackDiscountPrice: string
+	therapyAirSmartPrice: string
+	therapyAiriOnWhite: string
+	therapyAiriOnBlack: string
 }
 
 export type campaignsT = CampaignsI[] | undefined
@@ -16,7 +19,7 @@ export interface CampaignsQueryReturnI {
 }
 
 export interface CampaignsBySlugReturnI {
-	campaign: campaignsT
+	campaign: CampaignsI | undefined
 }
 
 export interface useSetCampaignByIdQueryReturnI {

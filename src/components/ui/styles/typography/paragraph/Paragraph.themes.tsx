@@ -6,6 +6,10 @@ export const primary = css`
 	font-weight: var(--fw-300);
 	font-size: 1.0625rem;
 `
+export const primaryMediumFS = css`
+	${primary}
+	font-size:var(--fs-20);
+`
 
 export const secondary = css`
 	font-weight: normal;

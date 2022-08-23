@@ -16,7 +16,8 @@ import {
 	table,
 	tableHeader,
 	tableBody,
-	flexColumn
+	flexColumn,
+	flexCenterAbsolute
 } from './Container.themes'
 
 interface ContainerI {
@@ -37,6 +38,7 @@ interface ContainerI {
 		| 'tableHeader'
 		| 'tableBody'
 		| 'flexColumn'
+		| 'flexCenterAbsolute'
 }
 
 const styles = {
@@ -55,6 +57,7 @@ const styles = {
 	table,
 	tableHeader,
 	tableBody,
-	flexColumn
+	flexColumn,
+	flexCenterAbsolute
 }
 export const Container = styled.div(({ theme }: ContainerI) => styles[theme])

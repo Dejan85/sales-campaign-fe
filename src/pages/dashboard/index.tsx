@@ -13,6 +13,8 @@ import { CampaignsQueryKeys, useCampaignsQuery } from 'queries/campaigns/useCamp
 import React, { useContext } from 'react'
 import { QueryClient, dehydrate } from 'react-query'
 
+export type setPageT = (page: InitialStateEnum) => void
+
 const Dashboard: NextPage = (): JSX.Element => {
 	const { setPage, page } = useContext(NavContext)
 	const { campaigns } = useCampaignsQuery()
@@ -21,7 +23,7 @@ const Dashboard: NextPage = (): JSX.Element => {
 		<Container theme="dashboard">
 			<NavLayout setPage={setPage} />
 			{page === InitialStateEnum.campaigns && <CampaignsPageLayout campaigns={campaigns} setPage={setPage} />}
-			{page === InitialStateEnum.createCampaign && <CreateCampaignLayout />}
+			{page === InitialStateEnum.createCampaign && <CreateCampaignLayout setPage={setPage} />}
 			{page === InitialStateEnum.editCampaign && <EditCampaignLayout />}
 			{page === InitialStateEnum.orders && <OrdersPageLayout />}
 		</Container>

@@ -16,7 +16,7 @@ export const useCampaignsQuery = (): CampaignsQueryReturnI => {
 
 // get campaign by slug
 export const useCampaignsBySlugQuery = (slug: string): CampaignsBySlugReturnI => {
-	const { data }: UseQueryResult<CampaignsI[]> = useQuery(
+	const { data }: UseQueryResult<CampaignsI | undefined> = useQuery(
 		CampaignsQueryKeys.campaignsBySlug,
 		() => {
 			return getCampaignsBySlug(slug)
@@ -27,6 +27,7 @@ export const useCampaignsBySlugQuery = (slug: string): CampaignsBySlugReturnI =>
 			}
 		}
 	)
+
 	return { campaign: data }
 }
 

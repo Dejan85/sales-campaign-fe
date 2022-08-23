@@ -41,19 +41,19 @@ export const CreateFormLayout: React.FC<FormLayoutI> = ({
 			<DatePickerLayout
 				label="Set expire date"
 				theme="primary"
-				placeholder={errors.active ? errors.date?.message : 'date'}
+				placeholder={errors.expireDate ? errors.expireDate?.message : 'Expire date'}
 				register={register}
-				errors={errors.date}
+				errors={errors.expireDate}
 				setValue={setValue}
 			/>
 
 			<SelectLayout
-				name="active"
+				name="activity"
 				theme="primary"
 				placeholder="Active"
 				options={['true', 'false']}
 				register={register}
-				errors={errors.active}
+				errors={errors.activity}
 				label="Set activity of campaign"
 			/>
 

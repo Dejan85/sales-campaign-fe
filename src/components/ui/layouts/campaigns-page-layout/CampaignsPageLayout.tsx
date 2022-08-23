@@ -2,11 +2,12 @@ import { Table } from 'components/frontend/table'
 import { Button } from 'components/ui/styles/button'
 import { Container } from 'components/ui/styles/container'
 import { InitialStateEnum } from 'context/dashboard/nav/types'
-import { CampaignsI } from 'queries/campaigns/types'
+import { campaignsT } from 'queries/campaigns/types'
 import React from 'react'
+import { NoCampaignsMessage } from '../no-campaigns-message'
 
 interface CampaignsPageLayoutI {
-	campaigns: CampaignsI[] | undefined
+	campaigns: campaignsT
 	setPage: (page: InitialStateEnum) => void
 }
 
@@ -18,7 +19,7 @@ export const CampaignsPageLayout: React.FC<CampaignsPageLayoutI> = ({ campaigns,
 					Create new campaign
 				</Button>
 			</Container>
-			<Table campaigns={campaigns} />
+			{campaigns ? <Table campaigns={campaigns} /> : <NoCampaignsMessage />}
 		</Container>
 	)
 }
