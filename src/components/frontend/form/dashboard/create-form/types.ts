@@ -1,6 +1,6 @@
 export interface CreateFormI {
 	name: string
-	date: string
+	date: number | null
 	active: boolean
 	slug: string
 	therapyAirSmartDiscountPrice: string

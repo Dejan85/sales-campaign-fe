@@ -69,7 +69,6 @@ export const formWrapper = css`
 	max-width: var(--mwd-800);
 	width: var(--wd-100-per);
 	gap: var(--gp-30);
-	padding-top: var(--pd-t-70px);
 `
 
 export const inputWrapper = css`

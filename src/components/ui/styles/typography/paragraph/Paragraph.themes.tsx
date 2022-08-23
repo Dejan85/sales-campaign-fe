@@ -56,4 +56,9 @@ export const nav = css`
 	background-color: var(--secondary-color);
 	border: 1px solid var(--third-color);
 	cursor: pointer;
+
+	&:hover {
+		background-color: var(--primary-color);
+		transition: 0.7s all;
+	}
 `

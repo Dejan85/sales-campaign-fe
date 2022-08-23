@@ -1,125 +1,136 @@
 import { CreateFormI } from 'components/frontend/form/dashboard/create-form/types'
 import { IFormInput } from 'components/frontend/form/orders/OrdersForm'
+import { DatePickerLayout } from 'components/ui/layouts/date-picker'
+import { InputLayout } from 'components/ui/layouts/input-layout'
+import { SelectLayout } from 'components/ui/layouts/select-layout'
 import { Button } from 'components/ui/styles/button'
 import { Container } from 'components/ui/styles/container'
 import { Input } from 'components/ui/styles/input'
+import { Select } from 'components/ui/styles/select'
 import React, { useEffect, useState } from 'react'
-import { UseFormRegister, UseFormHandleSubmit, SubmitHandler, FormState } from 'react-hook-form'
+import { UseFormRegister, UseFormHandleSubmit, SubmitHandler, FormState, UseFormSetValue } from 'react-hook-form'
 
 interface FormLayoutI {
 	register: UseFormRegister<CreateFormI>
 	handleSubmit: UseFormHandleSubmit<CreateFormI>
 	onSubmit: SubmitHandler<CreateFormI>
 	formState: FormState<CreateFormI>
+	setValue: UseFormSetValue<CreateFormI>
 }
 
 export const CreateFormLayout: React.FC<FormLayoutI> = ({
 	register,
 	handleSubmit,
 	onSubmit,
-	formState: { errors }
+	formState: { errors },
+	setValue
 }): JSX.Element => {
+	console.log('test errors', errors)
+
 	return (
 		<Container onSubmit={handleSubmit(onSubmit)} as="form" theme="formWrapper">
-			<Input
+			<InputLayout
 				theme="primary"
-				placeholder={errors.name ? errors.name?.message : 'Name of campaign'}
-				{...register('name')}
+				register={register}
+				placeholder="Name of campaign"
+				name="name"
 				errors={errors.name}
+				label="Name of campaign"
 			/>
-			<Input
+
+			<DatePickerLayout
+				label="Set expire date"
 				theme="primary"
-				placeholder={errors.date ? errors.date?.message : 'date'}
-				{...register('date')}
+				placeholder={errors.active ? errors.date?.message : 'date'}
+				register={register}
 				errors={errors.date}
+				setValue={setValue}
 			/>
 
-			<Input
+			<SelectLayout
+				name="active"
 				theme="primary"
-				placeholder={errors.active ? errors.active?.message : 'Active'}
-				{...register('active')}
+				placeholder="Active"
+				options={['true', 'false']}
+				register={register}
 				errors={errors.active}
+				label="Set activity of campaign"
 			/>
 
-			<Input
-				type="string"
+			<InputLayout
 				theme="primary"
-				placeholder={errors.active ? errors.slug?.message : 'Slug'}
-				{...register('slug')}
+				register={register}
+				placeholder="Slug"
+				name="slug"
 				errors={errors.slug}
+				label="Slug"
 			/>
 
-			<Input
-				type="number"
-				min={0}
-				max={45}
-				theme="primary"
-				placeholder={
-					errors.therapyAirSmartDiscountPrice
-						? errors.therapyAirSmartDiscountPrice?.message
-						: 'therapyAirSmartDiscountPrice'
-				}
-				{...register('therapyAirSmartDiscountPrice')}
-				errors={errors.therapyAirSmartDiscountPrice}
-			/>
+			<Container theme="inputWrapper">
+				<InputLayout
+					type="number"
+					theme="primary"
+					register={register}
+					placeholder="Therapy Air Smart Price"
+					name="therapyAirSmartPrice"
+					errors={errors.therapyAirSmartPrice}
+					label="Therapy Air Smart Price"
+				/>
 
-			<Input
-				type="number"
-				min={0}
-				max={45}
-				theme="primary"
-				placeholder={
-					errors.therapyAiriOnWhiteDiscountPrice
-						? errors.therapyAiriOnWhiteDiscountPrice?.message
-						: 'therapyAiriOnWhiteDiscountPrice'
-				}
-				{...register('therapyAiriOnWhiteDiscountPrice')}
-				errors={errors.therapyAiriOnWhiteDiscountPrice}
-			/>
+				<InputLayout
+					type="number"
+					theme="primary"
+					register={register}
+					placeholder="Therapy Air Smart Discount Price"
+					name="therapyAirSmartDiscountPrice"
+					errors={errors.therapyAirSmartDiscountPrice}
+					label="Therapy Air Smart Discount Price"
+				/>
+			</Container>
 
-			<Input
-				type="number"
-				min={0}
-				max={45}
-				theme="primary"
-				placeholder={
-					errors.therapyAiriOnBlackDiscountPrice
-						? errors.therapyAiriOnBlackDiscountPrice?.message
-						: 'therapyAiriOnBlackDiscountPrice'
-				}
-				{...register('therapyAiriOnBlackDiscountPrice')}
-				errors={errors.therapyAiriOnBlackDiscountPrice}
-			/>
+			<Container theme="inputWrapper">
+				<InputLayout
+					type="number"
+					theme="primary"
+					register={register}
+					placeholder="Therapy Air iOn White"
+					name="therapyAiriOnWhite"
+					errors={errors.therapyAiriOnWhite}
+					label="Therapy Air iOn White"
+				/>
 
-			<Input
-				type="number"
-				min={0}
-				max={45}
-				theme="primary"
-				placeholder={errors.therapyAirSmartPrice ? errors.therapyAirSmartPrice?.message : 'therapyAirSmartPrice'}
-				{...register('therapyAirSmartPrice')}
-				errors={errors.therapyAirSmartPrice}
-			/>
+				<InputLayout
+					type="number"
+					theme="primary"
+					register={register}
+					placeholder="Therapy Air iOn White Discount Price"
+					name="therapyAiriOnWhiteDiscountPrice"
+					errors={errors.therapyAiriOnWhiteDiscountPrice}
+					label="Therapy Air iOn White Discount Price"
+				/>
+			</Container>
 
-			<Input
-				type="number"
-				min={0}
-				max={45}
-				theme="primary"
-				placeholder={errors.therapyAiriOnWhite ? errors.therapyAiriOnWhite?.message : 'therapyAiriOnWhite'}
-				{...register('therapyAiriOnWhite')}
-				errors={errors.therapyAiriOnWhite}
-			/>
+			<Container theme="inputWrapper">
+				<InputLayout
+					type="number"
+					theme="primary"
+					register={register}
+					placeholder="Therapy Air iOn Black"
+					name="therapyAiriOnBlack"
+					errors={errors.therapyAiriOnBlack}
+					label="Therapy Air iOn Black"
+				/>
 
-			<Input
-				type="number"
-				min={0}
-				max={45}
-				theme="primary"
-				placeholder={errors.therapyAiriOnBlack ? errors.therapyAiriOnBlack?.message : 'therapyAiriOnBlack'}
-				{...register('therapyAiriOnBlack')}
-				errors={errors.therapyAiriOnBlack}
-			/>
+				<InputLayout
+					type="number"
+					theme="primary"
+					register={register}
+					placeholder="Therapy Air iOn Black Discount Price"
+					name="therapyAiriOnBlackDiscountPrice"
+					errors={errors.therapyAiriOnBlackDiscountPrice}
+					label="Therapy Air iOn Black Discount Price"
+				/>
+			</Container>
 
 			<Container theme="buttonWrapper">
 				<Button type="submit" theme="primary">
