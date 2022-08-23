@@ -17,3 +17,24 @@ export const primary = css`
 	text-transform: uppercase;
 	cursor: pointer;
 `
+
+export const secondary = css`
+	display: flex;
+	box-sizing: border-box;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	border: none;
+	border-radius: var(--br-20);
+	background-color: var(--secondary-color);
+	color: white;
+	padding: var(--pd-10);
+	font-size: var(--fs-15);
+	text-transform: uppercase;
+	cursor: pointer;
+
+	&:hover {
+		background: var(--primary-color);
+		transition: 0.7s all;
+	}
+`

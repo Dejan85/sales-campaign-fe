@@ -27,6 +27,12 @@ export const fullWidthBg = css`
 	background-color: var(--light-blue);
 `
 
+export const flexColumn = css`
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+`
+
 export const dashboard = css`
 	display: flex;
 	justify-content: flex-start;
@@ -42,6 +48,12 @@ export const wrapper = css`
 export const linkWrapper = css`
 	${wrapper}
 	padding-top: var(--pd-t-50px);
+`
+
+export const linkWrapperSecondary = css`
+	width: var(--wd-200);
+	margin-top: var(--pd-t-70px);
+	margin-left: var(--pd-t-50px);
 `
 
 export const relative = css`
@@ -74,7 +86,7 @@ export const buttonWrapper = css`
 `
 
 export const table = css`
-	margin-top: var(--pd-70);
+	margin-top: var(--pd-50);
 	margin-left: var(--pd-50);
 `
 
@@ -82,12 +94,6 @@ export const tableHeader = css`
 	display: grid;
 	grid-template-columns: repeat(8, minmax(25px, 150px));
 	grid-template-rows: repeat(auto-fill);
-	/* grid-row-gap: 120px; */
-	/* grid-column-gap: 20px; */
-	/* margin-top: 70px;
-	margin-left: 30px; */
-
-	/* outline: 1px solid red; */
 `
 
 export const tableBody = css`

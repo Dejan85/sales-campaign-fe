@@ -1,2 +1,2 @@
-import { EditCampaign } from './EditCampaign'
-export { EditCampaign }
+import { EditCampaignLayout } from './EditCampaignLayout'
+export { EditCampaignLayout }

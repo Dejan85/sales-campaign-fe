@@ -8,13 +8,15 @@ import {
 	dashboard,
 	wrapper,
 	linkWrapper,
+	linkWrapperSecondary,
 	relative,
 	formWrapper,
 	inputWrapper,
 	buttonWrapper,
 	table,
 	tableHeader,
-	tableBody
+	tableBody,
+	flexColumn
 } from './Container.themes'
 
 interface ContainerI {
@@ -26,6 +28,7 @@ interface ContainerI {
 		| 'dashboard'
 		| 'wrapper'
 		| 'linkWrapper'
+		| 'linkWrapperSecondary'
 		| 'relative'
 		| 'formWrapper'
 		| 'inputWrapper'
@@ -33,6 +36,7 @@ interface ContainerI {
 		| 'table'
 		| 'tableHeader'
 		| 'tableBody'
+		| 'flexColumn'
 }
 
 const styles = {
@@ -43,12 +47,14 @@ const styles = {
 	dashboard,
 	wrapper,
 	linkWrapper,
+	linkWrapperSecondary,
 	relative,
 	formWrapper,
 	inputWrapper,
 	buttonWrapper,
 	table,
 	tableHeader,
-	tableBody
+	tableBody,
+	flexColumn
 }
 export const Container = styled.div(({ theme }: ContainerI) => styles[theme])
