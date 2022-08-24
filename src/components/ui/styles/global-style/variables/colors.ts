@@ -8,4 +8,5 @@ export const colors = css`
 	--grey: grey;
 	--light-grey: #e5e5e7;
 	--light-blue: #e9f2f4;
+	--delete-red: #b62020;
 `

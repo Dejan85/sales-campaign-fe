@@ -1,22 +1,22 @@
 import { Container } from 'components/ui/styles/container'
-import { campaignsT } from 'queries/campaigns/types'
+import { TableCell } from 'components/ui/styles/table-cell'
 import React from 'react'
-import { BodyRows } from './BodyRows'
-import { HeaderRows } from './HeaderRows'
 
 export interface TableLayoutI {
-	columns: string[]
-	campaigns: campaignsT
+	tableData: string[]
+	columnNumber: number
 	editHandler: (id: number) => void
 }
 
-export const TableLayout: React.FC<TableLayoutI> = ({ columns, campaigns, editHandler }): JSX.Element => {
+export const TableLayout: React.FC<TableLayoutI> = ({ tableData, columnNumber, editHandler }): JSX.Element => {
 	return (
-		<Container theme="table">
-			<HeaderRows columns={columns} />
-			{campaigns?.map((campaign, index) => {
-				const rows: string[] | number[] = Object.values(campaign)
-				return <BodyRows key={index} rows={rows} editHandler={editHandler} />
+		<Container theme="table" columnNumber={columnNumber}>
+			{tableData.map((data, index) => {
+				return (
+					<TableCell columnNumber={columnNumber} key={index}>
+						{`${data}`}
+					</TableCell>
+				)
 			})}
 		</Container>
 	)

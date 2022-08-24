@@ -1,6 +1,7 @@
 import axios, { AxiosRequestConfig } from 'axios/index'
 import { CreateFormI } from 'components/frontend/form/dashboard/create-form/types'
 import { IncomingHttpHeaders } from 'http2'
+import { OrdersI } from 'queries/orders/types'
 
 const axiosClient: any = axios.create()
 
@@ -40,7 +41,7 @@ interface PatchI {
 
 interface PostI {
 	route: string
-	data?: CreateFormI
+	data?: CreateFormI | OrdersI
 	headers?: IncomingHttpHeaders
 	config?: any
 	needsAuth?: boolean
@@ -49,9 +50,9 @@ interface PostI {
 
 interface DeleteI {
 	route: string
-	params: object
-	headers: IncomingHttpHeaders
-	data: object
+	params?: object
+	headers?: IncomingHttpHeaders
+	data?: object
 }
 
 export class FetchWrapper {

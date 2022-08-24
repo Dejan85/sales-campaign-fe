@@ -1,16 +1,14 @@
-import { CreateFormI } from 'components/frontend/form/dashboard/create-form/types'
-import { IFormInput } from 'components/frontend/form/orders/OrdersForm'
 import { Container } from 'components/ui/styles/container'
 import { Label } from 'components/ui/styles/label'
 import { Select } from 'components/ui/styles/select'
 import { SelectThemeT } from 'components/ui/styles/select/Select.styles'
 import { ChangeEvent } from 'react'
-import { UseFormRegister, FieldError } from 'react-hook-form'
+import { FieldError } from 'react-hook-form'
 
 interface InputLayoutI {
 	theme: SelectThemeT
 	placeholder?: string
-	register: UseFormRegister<CreateFormI>
+	register: any
 	name: any
 	errors: FieldError | undefined
 	options: string[]

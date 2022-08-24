@@ -1,10 +1,8 @@
-import { IFormInput } from 'components/frontend/form/orders/OrdersForm'
 import { Container } from 'components/ui/styles/container'
 import { Input } from 'components/ui/styles/input'
 import { InputThemeT } from 'components/ui/styles/input/Input.styles'
 import { Label } from 'components/ui/styles/label'
-import { Paragraph } from 'components/ui/styles/typography/paragraph'
-import { UseFormRegister, FieldError } from 'react-hook-form'
+import { FieldError } from 'react-hook-form'
 
 interface InputLayoutI {
 	theme: InputThemeT

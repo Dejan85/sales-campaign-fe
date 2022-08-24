@@ -19,6 +19,8 @@ const Campaign: NextPage = (): JSX.Element => {
 	const { campaign } = useCampaignsBySlugQuery(slug)
 	const countdownTimestampMs = campaign?.expireDate || 0
 
+	console.log('test slug', slug)
+
 	return (
 		<>
 			<Container theme="secondary">
@@ -28,7 +30,7 @@ const Campaign: NextPage = (): JSX.Element => {
 					<SpecialOfferLayout />
 
 					<CountdownTimer countdownTimestampMs={countdownTimestampMs} />
-					<CheckInLinkLayout slug="therapy-air-smart" />
+					<CheckInLinkLayout slug={slug} model="therapy-air-smart" />
 				</Section>
 
 				<Section theme="imageSection">
@@ -43,7 +45,7 @@ const Campaign: NextPage = (): JSX.Element => {
 					<SpecialOfferLayout />
 
 					<CountdownTimer countdownTimestampMs={countdownTimestampMs} />
-					<CheckInLinkLayout slug="therapy-air-iOn-white" />
+					<CheckInLinkLayout slug={slug} model="therapy-air-iOn-white" />
 				</Section>
 
 				<Section theme="imageSection">
@@ -58,7 +60,7 @@ const Campaign: NextPage = (): JSX.Element => {
 					<SpecialOfferLayout />
 
 					<CountdownTimer countdownTimestampMs={countdownTimestampMs} />
-					<CheckInLinkLayout slug="therapy-air-iOn-black" />
+					<CheckInLinkLayout slug={slug} model="therapy-air-iOn-black" />
 				</Section>
 
 				<Section theme="imageSection">

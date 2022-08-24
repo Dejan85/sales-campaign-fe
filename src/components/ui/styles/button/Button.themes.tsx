@@ -38,3 +38,8 @@ export const secondary = css`
 		transition: 0.7s all;
 	}
 `
+
+export const deleteBtn = css`
+	${primary}
+	background: var(--delete-red);
+`

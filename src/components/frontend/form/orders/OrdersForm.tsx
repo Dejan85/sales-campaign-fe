@@ -1,20 +1,11 @@
 import { OrdersFormLayout } from 'components/ui/layouts/form-layout/orders'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useForm, SubmitHandler } from 'react-hook-form'
 import * as yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
-
-export interface IFormInput {
-	name: string
-	phone: string
-	email: string
-	address: string
-	// model: string
-	quantity: string
-	message: string
-	terms: string
-	wishDiscount: string
-}
+import { createOrder } from 'api/methods'
+import { OrdersI } from 'queries/orders/types'
+import { useRouter } from 'next/router'
 
 const schema = yup.object().shape({
 	name: yup.string().required('Ime je obavezno'),
@@ -28,15 +19,28 @@ const schema = yup.object().shape({
 	quantity: yup.string().required('Niste odabrali kolicinu'),
 	terms: yup.string(),
 	wishDiscount: yup.string(),
-	message: yup.string()
+	message: yup.string(),
+	model: yup.string().required('Model je obavezan')
 })
 
 export const OrdersForm: React.FC = (): JSX.Element => {
-	const { register, handleSubmit, formState } = useForm<IFormInput>({
+	const { push, query } = useRouter()
+	const { register, handleSubmit, formState, setValue } = useForm<OrdersI>({
 		resolver: yupResolver(schema)
 	})
-	const onSubmit: SubmitHandler<IFormInput> = (data, e) => {
-		console.log(data)
+	const slug = query.slugs as string[]
+
+	useEffect(() => {
+		setValue('model', slug && slug[1])
+	}, [slug])
+
+	const onSubmit: SubmitHandler<OrdersI> = async (data, e) => {
+		try {
+			await createOrder(data)
+			push(`/${slug[0]}`)
+		} catch (error) {
+			console.log('test createCampaign error', error)
+		}
 	}
 
 	return <OrdersFormLayout register={register} handleSubmit={handleSubmit} onSubmit={onSubmit} formState={formState} />

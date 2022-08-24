@@ -13,6 +13,7 @@ interface FormLayoutI {
 	onSubmit: SubmitHandler<CreateFormI>
 	formState: FormState<CreateFormI>
 	setValue: UseFormSetValue<CreateFormI>
+	deleteHandler?: () => Promise<void>
 }
 
 export const CreateFormLayout: React.FC<FormLayoutI> = ({
@@ -20,7 +21,8 @@ export const CreateFormLayout: React.FC<FormLayoutI> = ({
 	handleSubmit,
 	onSubmit,
 	formState: { errors },
-	setValue
+	setValue,
+	deleteHandler
 }): JSX.Element => {
 	console.log('test errors', errors)
 
@@ -133,6 +135,12 @@ export const CreateFormLayout: React.FC<FormLayoutI> = ({
 				<Button type="submit" theme="primary">
 					Save
 				</Button>
+
+				{deleteHandler && (
+					<Button type="button" theme="deleteBtn" onClick={deleteHandler}>
+						Delete
+					</Button>
+				)}
 			</Container>
 		</Container>
 	)

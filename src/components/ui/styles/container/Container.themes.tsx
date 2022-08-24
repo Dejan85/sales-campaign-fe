@@ -96,16 +96,10 @@ export const buttonWrapper = css`
 `
 
 export const table = css`
-	margin-top: var(--pd-50);
-	margin-left: var(--pd-50);
-`
-
-export const tableHeader = css`
 	display: grid;
-	grid-template-columns: 50px 150px 120px 70px 150px 200px 200px 200px 200px 200px 200px;
-	grid-template-rows: repeat(auto-fill);
-`
-
-export const tableBody = css`
-	${tableHeader}
+	max-width: var(--wd-900);
+	width: var(--wd-100-per);
+	border: 1px solid var(--grey);
+	margin-top: var(--pd-70);
+	margin-left: var(--pd-50);
 `

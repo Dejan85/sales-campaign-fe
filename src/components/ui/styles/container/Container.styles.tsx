@@ -1,3 +1,4 @@
+import { css } from '@emotion/react'
 import styled from '@emotion/styled'
 
 import {
@@ -14,13 +15,12 @@ import {
 	inputWrapper,
 	buttonWrapper,
 	table,
-	tableHeader,
-	tableBody,
 	flexColumn,
 	flexCenterAbsolute
 } from './Container.themes'
 
 interface ContainerI {
+	columnNumber?: number
 	theme:
 		| 'primary'
 		| 'primaryBg'
@@ -35,8 +35,6 @@ interface ContainerI {
 		| 'inputWrapper'
 		| 'buttonWrapper'
 		| 'table'
-		| 'tableHeader'
-		| 'tableBody'
 		| 'flexColumn'
 		| 'flexCenterAbsolute'
 }
@@ -55,9 +53,13 @@ const styles = {
 	inputWrapper,
 	buttonWrapper,
 	table,
-	tableHeader,
-	tableBody,
 	flexColumn,
 	flexCenterAbsolute
 }
-export const Container = styled.div(({ theme }: ContainerI) => styles[theme])
+
+export const Container = styled.div(({ theme, columnNumber }: ContainerI) => [
+	styles[theme],
+	css({
+		gridTemplateColumns: columnNumber && `repeat(${columnNumber}, minmax(100px, auto))`
+	})
+])

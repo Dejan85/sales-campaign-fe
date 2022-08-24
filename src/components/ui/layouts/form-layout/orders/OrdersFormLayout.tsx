@@ -1,19 +1,19 @@
-import { IFormInput } from 'components/frontend/form/orders/OrdersForm'
 import { Button } from 'components/ui/styles/button'
 import { Container } from 'components/ui/styles/container'
 import { Input } from 'components/ui/styles/input'
 import { Textarea } from 'components/ui/styles/text-area'
 import { Paragraph } from 'components/ui/styles/typography/paragraph'
-import React, { useEffect, useState } from 'react'
-import { UseFormRegister, UseFormHandleSubmit, SubmitHandler, FormState, UseFormGetValues } from 'react-hook-form'
+import { OrdersI } from 'queries/orders/types'
+import React, { useState } from 'react'
+import { UseFormRegister, UseFormHandleSubmit, SubmitHandler, FormState } from 'react-hook-form'
 import { SelectLayout } from '../../select-layout'
 import { termsOptions } from './const'
 
 interface OrdersFormLayoutI {
-	register: UseFormRegister<IFormInput>
-	handleSubmit: UseFormHandleSubmit<IFormInput>
-	onSubmit: SubmitHandler<IFormInput>
-	formState: FormState<IFormInput>
+	register: UseFormRegister<OrdersI>
+	handleSubmit: UseFormHandleSubmit<OrdersI>
+	onSubmit: SubmitHandler<OrdersI>
+	formState: FormState<OrdersI>
 }
 
 export const OrdersFormLayout: React.FC<OrdersFormLayoutI> = ({
@@ -24,6 +24,8 @@ export const OrdersFormLayout: React.FC<OrdersFormLayoutI> = ({
 }): JSX.Element => {
 	const [showWishDiscount, setShowWishDiscount] = useState<string>()
 	const wishDiscount: boolean = showWishDiscount === termsOptions[1]
+
+	console.log('test errors', errors)
 
 	return (
 		<Container onSubmit={handleSubmit(onSubmit)} as="form" theme="formWrapper">
@@ -65,7 +67,6 @@ export const OrdersFormLayout: React.FC<OrdersFormLayoutI> = ({
 			<Input
 				type="number"
 				min={1}
-				max={45}
 				theme="primary"
 				placeholder={errors.name ? errors.quantity?.message : 'Izaberite kolicinu'}
 				{...register('quantity')}

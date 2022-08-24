@@ -19,7 +19,7 @@ export const CampaignsPageLayout: React.FC<CampaignsPageLayoutI> = ({ campaigns,
 					Create new campaign
 				</Button>
 			</Container>
-			{campaigns ? <Table campaigns={campaigns} /> : <NoCampaignsMessage />}
+			{campaigns ? <Table campaigns={campaigns} limitObjectKey="slug" /> : <NoCampaignsMessage />}
 		</Container>
 	)
 }
