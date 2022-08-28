@@ -23,7 +23,6 @@ export interface CampaignsBySlugReturnI {
 }
 
 export interface useSetCampaignByIdQueryReturnI {
-	setCampaignById: (id: number) => void
 	getCampaignForEdit: () => campaignsT
 	campaign: CampaignsI | undefined
 }

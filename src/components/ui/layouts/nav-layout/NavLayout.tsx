@@ -1,22 +1,41 @@
 import { Nav } from 'components/ui/styles/nav'
 import { Paragraph } from 'components/ui/styles/typography/paragraph'
-import { InitialStateEnum } from 'context/dashboard/nav/types'
 import { NextPage } from 'next'
+import Link from 'next/link'
+import { useRouter } from 'next/router'
 import React from 'react'
 
-interface NavLayoutI {
-	setPage: (page: InitialStateEnum) => void
+export enum NavEnum {
+	campaigns = 'campaigns',
+	orders = 'orders'
 }
 
-export const NavLayout: NextPage<NavLayoutI> = ({ setPage }): JSX.Element => {
+export const NavLayout: NextPage = (): JSX.Element => {
+	const { route } = useRouter()
+
 	return (
 		<Nav theme="primary">
-			<Paragraph theme="nav" onClick={() => setPage(InitialStateEnum.campaigns)}>
-				Campaigns
-			</Paragraph>
-			<Paragraph theme="nav" onClick={() => setPage(InitialStateEnum.orders)}>
-				Orders
-			</Paragraph>
+			<Link href="/dashboard/campaigns">
+				<Paragraph
+					style={{
+						background: route.search(NavEnum.campaigns) !== -1 ? 'var(--secondary-color)' : 'var(--primary-color)'
+					}}
+					theme="nav"
+				>
+					{NavEnum.campaigns}
+				</Paragraph>
+			</Link>
+
+			<Link href="/dashboard/orders">
+				<Paragraph
+					style={{
+						background: route.search(NavEnum.orders) !== -1 ? 'var(--secondary-color)' : 'var(--primary-color)'
+					}}
+					theme="nav"
+				>
+					{NavEnum.orders}
+				</Paragraph>
+			</Link>
 		</Nav>
 	)
 }

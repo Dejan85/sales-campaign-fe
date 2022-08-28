@@ -8,16 +8,17 @@ export const API_ROUTES = {
 
 	///////////////////////////////////// GET ROUTES ///////////////////////////////////////////
 	getCampaigns: () => `${API_URL}/campaigns`,
-	getCampaignsBySlug: (slug: string) => `${API_URL}/campaigns/${slug}`,
+	getCampaignsBySlug: (slug: string) => `${API_URL}/campaigns/bySlug/${slug}`,
+	getCampaignsById: (id: string) => `${API_URL}/campaigns/byId/${id}`,
 
 	///////////////////////////////////// POST ROUTES ///////////////////////////////////////////
 	createCampaign: () => `${API_URL}/campaigns`,
 
 	///////////////////////////////////// PUT/PATCH ROUTES ///////////////////////////////////////////
-	updateCampaign: (id: number) => `${API_URL}/campaigns/${id}`,
+	updateCampaign: (id: string) => `${API_URL}/campaigns/${id}`,
 
 	///////////////////////////////////// DELETE ROUTES ///////////////////////////////////////////
-	deleteCampaign: (id: number) => `${API_URL}/campaigns/${id}`,
+	deleteCampaign: (id: string) => `${API_URL}/campaigns/${id}`,
 
 	///////////////////////////////////////////////////////////////////////////////////////////////
 	/////////////////////////////////////// ORDERS ///////////////////////////////////////////////
@@ -27,5 +28,8 @@ export const API_ROUTES = {
 	getOrders: () => `${API_URL}/orders`,
 
 	///////////////////////////////////// POST ROUTES ///////////////////////////////////////////
-	createOrder: () => `${API_URL}/orders`
+	createOrder: () => `${API_URL}/orders`,
+
+	///////////////////////////////////// DELETE ROUTES ///////////////////////////////////////////
+	deleteOrder: (id: string) => `${API_URL}/orders/${id}`
 }

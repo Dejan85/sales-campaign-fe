@@ -1,9 +1,9 @@
 import styled from '@emotion/styled'
-import { primary } from './Link.themes'
+import { primary, secondary } from './Link.themes'
 
 interface LinkI {
-	theme: 'primary'
+	theme: 'primary' | 'secondary'
 }
 
-const styles = { primary }
+const styles = { primary, secondary }
 export const Link = styled.a(({ theme }: LinkI) => styles[theme])

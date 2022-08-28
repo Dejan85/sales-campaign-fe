@@ -1,25 +1,28 @@
 import { Container } from 'components/ui/styles/container'
+import { ModalContext } from 'context/modal/modalContext'
 import { useRouter } from 'next/router'
-import React, { ReactNode } from 'react'
+import React, { ReactNode, useContext } from 'react'
 import { FooterLayout } from '../footer-layout'
 import { HeaderLayout } from '../header-layout/HeaderLayout'
+import { Modal } from '../modal'
+import { NavLayout } from '../nav-layout'
 
 interface Props {
 	children: ReactNode
 }
 
 export const Layout: React.FC<Props> = ({ children }): JSX.Element => {
-	const { query, route } = useRouter()
-	const slug = query.slugs as string[]
+	const { toggleModal } = useContext(ModalContext)
+	const { route } = useRouter()
 
-	const slugs = ['therapy-air-smart', 'therapy-air-iOn-white', 'therapy-air-iOn-black']
-	const showHeaderFooter = route !== '/dashboard' ? true : false
+	const isDashboard = route.search('dashboard')
 
 	return (
-		<Container theme={slug && slugs.indexOf(slug[1]) !== -1 ? 'primaryBg' : 'primary'}>
-			{showHeaderFooter && <HeaderLayout />}
+		<Container theme={isDashboard === -1 ? 'primary' : 'primaryRow'}>
+			{toggleModal && <Modal />}
+			{isDashboard === -1 ? <HeaderLayout /> : <NavLayout />}
 			{children}
-			{showHeaderFooter && <FooterLayout />}
+			{isDashboard === -1 && <FooterLayout />}
 		</Container>
 	)
 }

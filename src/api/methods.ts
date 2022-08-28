@@ -21,6 +21,13 @@ export const getCampaignsBySlug = (slug: string) =>
 		route: API_ROUTES.getCampaignsBySlug(slug)
 	})
 
+// get campaign by id
+
+export const getCampaignsById = (id: string) =>
+	FetchWrapper.get({
+		route: API_ROUTES.getCampaignsById(id)
+	})
+
 ///////////////////////////////////// POST METHODS ///////////////////////////////////////////
 
 // create campaign
@@ -33,7 +40,7 @@ export const createCampaign = (data: CreateFormI) =>
 ///////////////////////////////////// PUT/PATCH METHODS ///////////////////////////////////////////
 
 // update campaign
-export const updateCampaign = (id: number, data: CreateFormI) =>
+export const updateCampaign = (id: string, data: CreateFormI) =>
 	FetchWrapper.patch({
 		route: API_ROUTES.updateCampaign(id),
 		data
@@ -42,7 +49,7 @@ export const updateCampaign = (id: number, data: CreateFormI) =>
 ///////////////////////////////////// DELETE METHODS ///////////////////////////////////////////
 
 // DELETE campaign
-export const deleteCampaign = (id: number) =>
+export const deleteCampaign = (id: string) =>
 	FetchWrapper.delete({
 		route: API_ROUTES.updateCampaign(id)
 	})
@@ -66,4 +73,12 @@ export const createOrder = (data: OrdersI) =>
 	FetchWrapper.post({
 		route: API_ROUTES.createOrder(),
 		data
+	})
+
+///////////////////////////////////// DELETE METHODS ///////////////////////////////////////////
+
+// DELETE campaign
+export const deleteOrder = (id: string) =>
+	FetchWrapper.delete({
+		route: API_ROUTES.deleteOrder(id)
 	})

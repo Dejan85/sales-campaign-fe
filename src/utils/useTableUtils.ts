@@ -1,22 +1,21 @@
 import { CampaignsI } from 'queries/campaigns/types'
 import { OrdersI } from 'queries/orders/types'
 
-export const useTableUtils = (limitObjectKey: string, data: CampaignsI[] | OrdersI[]) => {
-	const columns: string[] = []
-	data?.forEach(item => Object.keys(item).forEach(key => columns.push(key)))
-	const tableData = columns.splice(0, [...new Set(columns)].indexOf(limitObjectKey) + 1)
-	const columnNumber = tableData.length // limiter for table columns in header
+export const useTableUtils = (columns: string[], data: CampaignsI[] | OrdersI[]) => {
+	const columnNumber = columns.length
+
 	data?.forEach((object: any) => {
 		for (const key in object) {
-			const tableDataObjectKey = tableData[tableData.indexOf(key)]
-			if (tableDataObjectKey) {
-				tableData.push(object[tableDataObjectKey])
+			if (key === 'id') {
+				columns.push(object[key])
+			} else {
+				columns.push(`${object[key]}`)
 			}
 		}
 	})
 
 	return {
-		tableData,
+		tableData: columns,
 		columnNumber
 	}
 }

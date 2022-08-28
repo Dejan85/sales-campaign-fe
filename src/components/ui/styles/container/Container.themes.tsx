@@ -7,6 +7,11 @@ export const primary = css`
 	min-height: 100vh;
 `
 
+export const primaryRow = css`
+	display: flex;
+	min-height: 100vh;
+`
+
 export const primaryBg = css`
 	${primary}
 	background-color: var(--light-blue);
@@ -25,6 +30,10 @@ export const fullWidthBg = css`
 	${secondary}
 	width:100%;
 	background-color: var(--light-blue);
+`
+
+export const flexRow = css`
+	display: flex;
 `
 
 export const flexColumn = css`
@@ -64,7 +73,7 @@ export const linkWrapper = css`
 export const linkWrapperSecondary = css`
 	width: var(--wd-200);
 	margin-top: var(--pd-t-70px);
-	margin-left: var(--pd-t-50px);
+	margin-left: var(--pd-t-70px);
 `
 
 export const relative = css`
@@ -97,9 +106,46 @@ export const buttonWrapper = css`
 
 export const table = css`
 	display: grid;
-	max-width: var(--wd-900);
+	/* max-width: var(--wd-900); */
+	max-width: var(--wd-1440);
 	width: var(--wd-100-per);
 	border: 1px solid var(--grey);
-	margin-top: var(--pd-70);
-	margin-left: var(--pd-50);
+	margin-top: var(--pd-50);
+	margin-left: var(--pd-70);
+`
+
+export const details = css`
+	display: flex;
+	flex-direction: column;
+	width: var(--wd-100-per);
+	padding-top: var(--pd-70);
+	padding-left: var(--pd-70);
+`
+
+export const detailsRows = css`
+	border: 1px solid var(--light-grey);
+`
+
+export const modal = css`
+	position: absolute;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 100;
+	width: 100%;
+	height: 100%;
+	background: rgba(23, 22, 21, 0.5);
+
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+`
+
+export const modalContent = css`
+	${wrapper}
+	justify-content:center;
+	background: white;
+	max-width: 650px;
+	width: 100%;
+	padding: 30px 0px;
 `

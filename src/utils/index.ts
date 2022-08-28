@@ -1,3 +1,4 @@
 import { useTableUtils } from './useTableUtils'
+import { useOutsideClick } from './useOutsideClick'
 
-export { useTableUtils }
+export { useTableUtils, useOutsideClick }

@@ -1,4 +1,4 @@
-import { getCampaigns, getCampaignsBySlug } from 'api/methods'
+import { getCampaigns, getCampaignsById, getCampaignsBySlug } from 'api/methods'
 import { useQuery, useQueryClient, UseQueryResult } from 'react-query'
 import { CampaignsBySlugReturnI, CampaignsI, CampaignsQueryReturnI, useSetCampaignByIdQueryReturnI } from './types'
 
@@ -32,38 +32,19 @@ export const useCampaignsBySlugQuery = (slug: string): CampaignsBySlugReturnI =>
 }
 
 // get campaign by id
-export const useCampaignByIdQuery = (): useSetCampaignByIdQueryReturnI => {
-	const queryClient = useQueryClient()
-
-	const setCampaignById = (id: number) => {
-		const campaigns: CampaignsI[] | undefined = queryClient.getQueryData(CampaignsQueryKeys.campaigns)
-		queryClient.setQueryData(
-			CampaignsQueryKeys.campaignById,
-			campaigns?.filter(campaign => campaign.id === id)
-		)
-		queryClient.invalidateQueries(CampaignsQueryKeys.campaignById, { exact: true })
-	}
-
-	const getCampaignForEdit = (): CampaignsI[] | undefined => {
-		const campaigns: CampaignsI[] | undefined = queryClient.getQueryData(CampaignsQueryKeys.campaignById)
-		return campaigns
-	}
-
-	const { data: campaign }: UseQueryResult<CampaignsI | undefined> = useQuery(
-		CampaignsQueryKeys.campaignById,
-		getCampaignForEdit,
+export const useCampaignByIdQuery = (id: string): CampaignsBySlugReturnI => {
+	const { data }: UseQueryResult<CampaignsI | undefined> = useQuery(
+		[CampaignsQueryKeys.campaignById, id],
+		() => {
+			return getCampaignsById(id)
+		},
 		{
-			select: (data): CampaignsI | undefined => {
-				if (data) {
-					return data[0]
-				}
+			enabled: id ? true : false,
+			select: data => {
+				return data[0]
 			}
 		}
 	)
 
-	return {
-		setCampaignById,
-		getCampaignForEdit,
-		campaign
-	}
+	return { campaign: data }
 }

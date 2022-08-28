@@ -10,7 +10,8 @@ import {
 	bigNumber,
 	timerText,
 	error,
-	nav
+	nav,
+	detailsRows
 } from './Paragraph.themes'
 
 interface ParagraphI {
@@ -26,6 +27,7 @@ interface ParagraphI {
 		| 'timerText'
 		| 'error'
 		| 'nav'
+		| 'detailsRows'
 }
 
 const styles = {
@@ -39,6 +41,7 @@ const styles = {
 	bigNumber,
 	timerText,
 	error,
-	nav
+	nav,
+	detailsRows
 }
 export const Paragraph = styled.p(({ theme }: ParagraphI) => [styles[theme]])

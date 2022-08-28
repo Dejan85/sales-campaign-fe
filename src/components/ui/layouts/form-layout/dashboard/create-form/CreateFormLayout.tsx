@@ -4,7 +4,8 @@ import { InputLayout } from 'components/ui/layouts/input-layout'
 import { SelectLayout } from 'components/ui/layouts/select-layout'
 import { Button } from 'components/ui/styles/button'
 import { Container } from 'components/ui/styles/container'
-import { CampaignsI } from 'queries/campaigns/types'
+import { ModalContext } from 'context/modal/modalContext'
+import { useContext } from 'react'
 import { UseFormRegister, UseFormHandleSubmit, SubmitHandler, FormState, UseFormSetValue } from 'react-hook-form'
 
 interface FormLayoutI {
@@ -14,6 +15,7 @@ interface FormLayoutI {
 	formState: FormState<CreateFormI>
 	setValue: UseFormSetValue<CreateFormI>
 	deleteHandler?: () => Promise<void>
+	id?: string
 }
 
 export const CreateFormLayout: React.FC<FormLayoutI> = ({
@@ -22,8 +24,10 @@ export const CreateFormLayout: React.FC<FormLayoutI> = ({
 	onSubmit,
 	formState: { errors },
 	setValue,
-	deleteHandler
+	deleteHandler,
+	id
 }): JSX.Element => {
+	const { toggleModalAction } = useContext(ModalContext)
 	console.log('test errors', errors)
 
 	return (
@@ -137,7 +141,13 @@ export const CreateFormLayout: React.FC<FormLayoutI> = ({
 				</Button>
 
 				{deleteHandler && (
-					<Button type="button" theme="deleteBtn" onClick={deleteHandler}>
+					<Button
+						type="button"
+						theme="deleteBtn"
+						onClick={() => {
+							toggleModalAction({ deleteHandler, id })
+						}}
+					>
 						Delete
 					</Button>
 				)}

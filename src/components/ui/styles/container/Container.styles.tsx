@@ -3,6 +3,7 @@ import styled from '@emotion/styled'
 
 import {
 	primary,
+	primaryRow,
 	primaryBg,
 	secondary,
 	fullWidthBg,
@@ -16,13 +17,19 @@ import {
 	buttonWrapper,
 	table,
 	flexColumn,
-	flexCenterAbsolute
+	flexCenterAbsolute,
+	details,
+	flexRow,
+	detailsRows,
+	modal,
+	modalContent
 } from './Container.themes'
 
 interface ContainerI {
 	columnNumber?: number
 	theme:
 		| 'primary'
+		| 'primaryRow'
 		| 'primaryBg'
 		| 'secondary'
 		| 'fullWidthBg'
@@ -37,10 +44,16 @@ interface ContainerI {
 		| 'table'
 		| 'flexColumn'
 		| 'flexCenterAbsolute'
+		| 'details'
+		| 'flexRow'
+		| 'detailsRows'
+		| 'modal'
+		| 'modalContent'
 }
 
 const styles = {
 	primary,
+	primaryRow,
 	primaryBg,
 	secondary,
 	fullWidthBg,
@@ -54,7 +67,12 @@ const styles = {
 	buttonWrapper,
 	table,
 	flexColumn,
-	flexCenterAbsolute
+	flexCenterAbsolute,
+	details,
+	flexRow,
+	detailsRows,
+	modal,
+	modalContent
 }
 
 export const Container = styled.div(({ theme, columnNumber }: ContainerI) => [

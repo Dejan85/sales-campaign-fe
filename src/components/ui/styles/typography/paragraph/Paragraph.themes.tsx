@@ -66,3 +66,10 @@ export const nav = css`
 		transition: 0.7s all;
 	}
 `
+export const detailsRows = css`
+	${primary}
+	padding: var(--pd-10);
+	padding-right: var(--pd-20);
+	border: 1px solid var(--light-grey);
+	/* background: red; */
+`

@@ -3,5 +3,4 @@ import { CampaignsI } from 'queries/campaigns/types'
 
 export interface UpdateFormI {
 	campaign: CampaignsI | undefined
-	setPage: setPageT
 }

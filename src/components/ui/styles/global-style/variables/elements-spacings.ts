@@ -6,6 +6,7 @@ export const margins = css`
 
 export const paddings = css`
 	--pd-3px: 3px;
+	--pd-5: 5px;
 	--pd-10: 10px;
 	--pd-20: 20px;
 	--pd-50: 50px;

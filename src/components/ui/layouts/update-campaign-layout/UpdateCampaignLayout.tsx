@@ -1,19 +1,14 @@
 import { UpdateForm } from 'components/frontend/form/dashboard/update-form'
 import { Container } from 'components/ui/styles/container'
-import { setPageT } from 'pages/dashboard'
+import { useRouter } from 'next/router'
 import { useCampaignByIdQuery } from 'queries/campaigns/useCampaignsQuery'
 import React from 'react'
 
-interface UpdateCampaignLayoutI {
-	setPage: setPageT
-}
+export const UpdateCampaignLayout: React.FC = (): JSX.Element => {
+	const { query } = useRouter()
+	const id = query.id as string
 
-export const UpdateCampaignLayout: React.FC<UpdateCampaignLayoutI> = ({ setPage }): JSX.Element => {
-	const { campaign } = useCampaignByIdQuery()
+	const { campaign } = useCampaignByIdQuery(id)
 
-	return (
-		<Container theme="fullWidthBg">
-			<UpdateForm campaign={campaign} setPage={setPage} />
-		</Container>
-	)
+	return <Container theme="fullWidthBg">{campaign && <UpdateForm campaign={campaign} />}</Container>
 }

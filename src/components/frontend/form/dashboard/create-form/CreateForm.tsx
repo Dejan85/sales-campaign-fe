@@ -2,12 +2,12 @@ import React from 'react'
 import { useForm, SubmitHandler } from 'react-hook-form'
 import * as yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
-import { CreateFormI, CreateFormPropsI } from './types'
+import { CreateFormI } from './types'
 import { CreateFormLayout } from 'components/ui/layouts/form-layout/dashboard/create-form'
 import { createCampaign } from 'api/methods'
 import { CampaignsQueryKeys } from 'queries/campaigns/useCampaignsQuery'
 import { useQueryClient } from 'react-query'
-import { InitialStateEnum } from 'context/dashboard/nav/types'
+import { useRouter } from 'next/router'
 
 export const schema = yup.object().shape({
 	name: yup.string().required('Name is required'),
@@ -23,8 +23,9 @@ export const schema = yup.object().shape({
 	therapyAiriOnBlack: yup.string().required('Therapy Air iOn Black price is required')
 })
 
-export const CreateForm: React.FC<CreateFormPropsI> = ({ setPage }): JSX.Element => {
+export const CreateForm: React.FC = (): JSX.Element => {
 	const queryClient = useQueryClient()
+	const { push } = useRouter()
 
 	const { register, handleSubmit, formState, setValue } = useForm<CreateFormI>({
 		resolver: yupResolver(schema)
@@ -33,7 +34,7 @@ export const CreateForm: React.FC<CreateFormPropsI> = ({ setPage }): JSX.Element
 		try {
 			const response = await createCampaign(data)
 			queryClient.refetchQueries(CampaignsQueryKeys.campaigns)
-			setPage(InitialStateEnum.campaigns)
+			push('/dashboard/campaigns')
 		} catch (error) {
 			console.log('test createCampaign error', error)
 		}

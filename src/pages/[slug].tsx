@@ -19,8 +19,6 @@ const Campaign: NextPage = (): JSX.Element => {
 	const { campaign } = useCampaignsBySlugQuery(slug)
 	const countdownTimestampMs = campaign?.expireDate || 0
 
-	console.log('test slug', slug)
-
 	return (
 		<>
 			<Container theme="secondary">
@@ -73,9 +71,10 @@ const Campaign: NextPage = (): JSX.Element => {
 
 export default Campaign
 
-export const getServerSideProps: GetServerSideProps = async ({ params, res }) => {
+export const getServerSideProps: GetServerSideProps = async ({ query, res }) => {
 	let notFound = false
-	const slug = params?.slug as string
+	const slug = query?.slug as string
+
 	const queryClient: QueryClient = new QueryClient()
 	await queryClient.prefetchQuery<CampaignsI[]>(CampaignsQueryKeys.campaignsBySlug, () =>
 		getCampaignsBySlug(slug).then(res => {

@@ -1,26 +1,17 @@
 import { TableLayout } from 'components/ui/layouts/table-layout'
-import { NavContext } from 'context/dashboard/nav/navContext'
-import { InitialStateEnum } from 'context/dashboard/nav/types'
 import { CampaignsI } from 'queries/campaigns/types'
-import { useCampaignByIdQuery } from 'queries/campaigns/useCampaignsQuery'
 import { OrdersI } from 'queries/orders/types'
-import React, { useContext } from 'react'
+import React from 'react'
 import { useTableUtils } from 'utils'
 
 interface TableI {
+	columns: string[]
 	campaigns: CampaignsI[] | OrdersI[]
-	limitObjectKey: string
+	deleteHandler?: (id: string) => Promise<void>
 }
 
-export const Table: React.FC<TableI> = ({ campaigns, limitObjectKey }): JSX.Element => {
-	const { setPage } = useContext(NavContext)
-	const { setCampaignById } = useCampaignByIdQuery()
-	const { tableData, columnNumber } = useTableUtils(limitObjectKey, campaigns)
+export const Table: React.FC<TableI> = ({ columns, campaigns, deleteHandler }): JSX.Element => {
+	const { tableData, columnNumber } = useTableUtils(columns, campaigns)
 
-	const editHandler = (id: number) => {
-		setCampaignById(id)
-		setPage(InitialStateEnum.editCampaign)
-	}
-
-	return <TableLayout editHandler={editHandler} tableData={tableData} columnNumber={columnNumber} />
+	return <TableLayout deleteHandler={deleteHandler} tableData={tableData} columnNumber={columnNumber} />
 }

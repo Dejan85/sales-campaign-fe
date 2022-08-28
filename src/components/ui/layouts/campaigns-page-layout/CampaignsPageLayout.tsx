@@ -1,25 +1,42 @@
 import { Table } from 'components/frontend/table'
-import { Button } from 'components/ui/styles/button'
 import { Container } from 'components/ui/styles/container'
-import { InitialStateEnum } from 'context/dashboard/nav/types'
+import Link from 'next/link'
 import { campaignsT } from 'queries/campaigns/types'
-import React from 'react'
-import { NoCampaignsMessage } from '../no-campaigns-message'
+import { NoDataMessage } from '../no-data-message'
+import { Link as LinkComponent } from 'components/ui/styles/link'
 
 interface CampaignsPageLayoutI {
 	campaigns: campaignsT
-	setPage: (page: InitialStateEnum) => void
 }
 
-export const CampaignsPageLayout: React.FC<CampaignsPageLayoutI> = ({ campaigns, setPage }): JSX.Element => {
+export const CampaignsPageLayout: React.FC<CampaignsPageLayoutI> = ({ campaigns }): JSX.Element => {
+	const columns = [
+		'Id',
+		'Name',
+		'Expire date',
+		'Activity',
+		'Slug',
+		'AirSmart price',
+		'AirSmart discount',
+		'Air iOn white',
+		'Air iOn white discount',
+		'Air iOn black',
+		'Air iOn black discount'
+	]
+
 	return (
 		<Container theme="flexColumn">
 			<Container theme="linkWrapperSecondary">
-				<Button theme="secondary" onClick={() => setPage(InitialStateEnum.createCampaign)}>
-					Create new campaign
-				</Button>
+				<Link href="/dashboard/campaigns/create">
+					<LinkComponent theme="primary">Create new campaign</LinkComponent>
+				</Link>
 			</Container>
-			{campaigns ? <Table campaigns={campaigns} limitObjectKey="slug" /> : <NoCampaignsMessage />}
+
+			{campaigns ? (
+				<Table columns={columns} campaigns={campaigns} />
+			) : (
+				<NoDataMessage message="There are no campaigns, you have to create them." />
+			)}
 		</Container>
 	)
 }

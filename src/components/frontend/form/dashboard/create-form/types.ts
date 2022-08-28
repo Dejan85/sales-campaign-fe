@@ -1,4 +1,3 @@
-import { InitialStateEnum } from 'context/dashboard/nav/types'
 import { setPageT } from 'pages/dashboard'
 
 export interface CreateFormI {

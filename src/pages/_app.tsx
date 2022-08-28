@@ -1,6 +1,6 @@
 import { Layout } from 'components/ui/layouts/layout'
 import { globalStyles } from 'components/ui/styles/global-style/GlobalStyle'
-import { NavProvider } from 'context/dashboard/nav/navContext'
+import { ModalProvider } from 'context/modal/modalContext'
 import type { AppProps } from 'next/app'
 import { useRef } from 'react'
 import { Hydrate, QueryClient, QueryClientProvider } from 'react-query'
@@ -22,12 +22,12 @@ const App = ({ Component, pageProps }: AppProps) => {
 	return (
 		<QueryClientProvider client={queryClient.current}>
 			<Hydrate state={pageProps.dehydratedState}>
-				<NavProvider>
+				<ModalProvider>
 					<Layout>
 						{globalStyles}
 						<Component {...pageProps} />
 					</Layout>
-				</NavProvider>
+				</ModalProvider>
 			</Hydrate>
 			<ReactQueryDevtools initialIsOpen />
 		</QueryClientProvider>
