@@ -16,9 +16,10 @@ export const Layout: React.FC<Props> = ({ children }): JSX.Element => {
 	const { route } = useRouter()
 
 	const isDashboard = route.search('dashboard')
+	const isKupovina = route.search('kupovina')
 
 	return (
-		<Container theme={isDashboard === -1 ? 'primary' : 'primaryRow'}>
+		<Container theme={isKupovina !== -1 ? 'primaryBg' : isDashboard === -1 ? 'primary' : 'primaryRow'}>
 			{toggleModal && <Modal />}
 			{isDashboard === -1 ? <HeaderLayout /> : <NavLayout />}
 			{children}

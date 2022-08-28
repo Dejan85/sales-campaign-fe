@@ -39,7 +39,7 @@ export const OrdersForm: React.FC = (): JSX.Element => {
 			await createOrder(data)
 			push(`/${slug[0]}`)
 		} catch (error) {
-			console.log('test createCampaign error', error)
+			console.log('test create order error', error)
 		}
 	}
 
