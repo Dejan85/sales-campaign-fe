@@ -5,12 +5,13 @@ import { ModalActionReturnI } from './types'
 const ModalContext = createContext<any>({})
 
 const ModalProvider = ({ children }: { children: JSX.Element }) => {
-	const { state, toggleModalAction }: ModalActionReturnI = modalAction()
+	const { state, toggleModalAction, toggleNewsLetterModalAction }: ModalActionReturnI = modalAction()
 
 	return (
 		<ModalContext.Provider
 			value={{
 				toggleModalAction,
+				toggleNewsLetterModalAction,
 				...state
 			}}
 		>

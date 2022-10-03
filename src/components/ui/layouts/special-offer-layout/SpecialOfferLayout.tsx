@@ -1,18 +1,44 @@
+import { CountdownTimer } from 'components/frontend/countdown-timer'
+import { ContainerRow } from 'components/ui/refactore/container'
 import React from 'react'
 import { Article } from '../../styles/article'
 import { Heading } from '../../styles/typography/heading'
 import { Paragraph } from '../../styles/typography/paragraph/Paragraph.styles'
+import { Const, neededOrders } from './const'
 
-export const SpecialOfferLayout: React.FC = (): JSX.Element => {
+interface SpecialOfferLayoutI {
+	totalNumberOfReservations?: string
+	currentDiscountLevel?: string
+	validReservationsRequired?: string
+	nextLevelOfDiscount?: string
+	countdownTimestampMs: number
+}
+
+export const SpecialOfferLayout: React.FC<SpecialOfferLayoutI> = ({
+	totalNumberOfReservations,
+	currentDiscountLevel,
+	validReservationsRequired,
+	nextLevelOfDiscount,
+	countdownTimestampMs
+}): JSX.Element => {
 	return (
-		<Article theme="specialOffer">
-			<Heading as="h3" theme="secondary">
-				Specijalna ponuda
-			</Heading>
-
-			<Paragraph theme="primary">
-				Ucestvovanjem u grupnoj kupovini mozete ostvariti popust od 45% u zavisnosti od broja porudzbina
-			</Paragraph>
-		</Article>
+		<ContainerRow>
+			<Article theme="specialOffer">
+				<Heading as="h3" theme="secondary">
+					{Const.heading}
+				</Heading>
+				<Paragraph theme="primary">{Const.paragraph}</Paragraph>
+				<CountdownTimer countdownTimestampMs={countdownTimestampMs} />
+				<Paragraph style={{ fontWeight: 'bold' }} theme="primary">
+					{Const.totalNumberOfReservations} {`${totalNumberOfReservations}`}
+				</Paragraph>
+				<Paragraph style={{ fontWeight: 'bold' }} theme="primary">
+					{Const.discount}: {currentDiscountLevel}%
+				</Paragraph>
+				<Paragraph style={{ fontWeight: 'bold' }} theme="primary">
+					{neededOrders(validReservationsRequired, nextLevelOfDiscount)}
+				</Paragraph>
+			</Article>
+		</ContainerRow>
 	)
 }

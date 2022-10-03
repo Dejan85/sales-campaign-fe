@@ -4,8 +4,10 @@ export const widths = css`
 	--wd-1440: 1440px;
 	--wd-900: 900px;
 	--wd-150: 150px;
-	--wd-200: 200px;
 	--wd-300: 300px;
+	--wd-230: 230px;
+	--wd-200: 200px;
+
 
 	--wd-100-per: 100%;
 	--wd-90-per: 90%;

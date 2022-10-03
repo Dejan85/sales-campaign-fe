@@ -6,6 +6,7 @@ import {
 	primaryRow,
 	primaryBg,
 	secondary,
+	third,
 	fullWidthBg,
 	dashboard,
 	wrapper,
@@ -22,7 +23,8 @@ import {
 	flexRow,
 	detailsRows,
 	modal,
-	modalContent
+	modalContent,
+	groupLayout
 } from './Container.themes'
 
 interface ContainerI {
@@ -31,6 +33,7 @@ interface ContainerI {
 		| 'primary'
 		| 'primaryRow'
 		| 'primaryBg'
+		| 'third'
 		| 'secondary'
 		| 'fullWidthBg'
 		| 'dashboard'
@@ -49,6 +52,7 @@ interface ContainerI {
 		| 'detailsRows'
 		| 'modal'
 		| 'modalContent'
+		| 'groupLayout'
 }
 
 const styles = {
@@ -56,6 +60,7 @@ const styles = {
 	primaryRow,
 	primaryBg,
 	secondary,
+	third,
 	fullWidthBg,
 	dashboard,
 	wrapper,
@@ -72,7 +77,8 @@ const styles = {
 	flexRow,
 	detailsRows,
 	modal,
-	modalContent
+	modalContent,
+	groupLayout
 }
 
 export const Container = styled.div(({ theme, columnNumber }: ContainerI) => [

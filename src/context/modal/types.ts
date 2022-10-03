@@ -6,6 +6,7 @@ export interface PayloadI {
 
 export interface InitialStateI extends PayloadI {
 	toggleModal: boolean
+	toggleNewsLetterModal: boolean
 }
 
 export interface ActionI {
@@ -16,4 +17,5 @@ export interface ActionI {
 export interface ModalActionReturnI {
 	state: InitialStateI
 	toggleModalAction: ({ deleteHandler, id, message }: PayloadI) => void
+	toggleNewsLetterModalAction: () => void
 }

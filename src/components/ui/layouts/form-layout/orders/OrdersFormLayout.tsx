@@ -5,7 +5,7 @@ import { Textarea } from 'components/ui/styles/text-area'
 import { Paragraph } from 'components/ui/styles/typography/paragraph'
 import { OrdersI } from 'queries/orders/types'
 import React, { useState } from 'react'
-import { UseFormRegister, UseFormHandleSubmit, SubmitHandler, FormState } from 'react-hook-form'
+import { UseFormRegister, UseFormHandleSubmit, SubmitHandler, FormState, UseFormSetError } from 'react-hook-form'
 import { SelectLayout } from '../../select-layout'
 import { termsOptions } from './const'
 
@@ -13,6 +13,7 @@ interface OrdersFormLayoutI {
 	register: UseFormRegister<OrdersI>
 	handleSubmit: UseFormHandleSubmit<OrdersI>
 	onSubmit: SubmitHandler<OrdersI>
+	setError: UseFormSetError<OrdersI>
 	formState: FormState<OrdersI>
 }
 
@@ -20,12 +21,11 @@ export const OrdersFormLayout: React.FC<OrdersFormLayoutI> = ({
 	register,
 	handleSubmit,
 	onSubmit,
+	setError,
 	formState: { errors }
 }): JSX.Element => {
 	const [showWishDiscount, setShowWishDiscount] = useState<string>()
-	const wishDiscount: boolean = showWishDiscount === termsOptions[1]
-
-	console.log('test errors', errors)
+	const wishDiscount: boolean = showWishDiscount === termsOptions[2]
 
 	return (
 		<Container onSubmit={handleSubmit(onSubmit)} as="form" theme="formWrapper">
@@ -50,12 +50,6 @@ export const OrdersFormLayout: React.FC<OrdersFormLayoutI> = ({
 				{...register('email')}
 				errors={errors.name}
 			/>
-			<Input
-				theme="primary"
-				placeholder={errors.name ? errors.address?.message : 'Unesite adresu za dostavu'}
-				{...register('address')}
-				errors={errors.address}
-			/>
 			{/* <SelectLayout
 				name="model"
 				theme="primary"
@@ -68,7 +62,7 @@ export const OrdersFormLayout: React.FC<OrdersFormLayoutI> = ({
 				type="number"
 				min={1}
 				theme="primary"
-				placeholder={errors.name ? errors.quantity?.message : 'Izaberite kolicinu'}
+				placeholder={errors.name ? errors.quantity?.message : 'Upišite broj komada'}
 				{...register('quantity')}
 				errors={errors.quantity}
 			/>
@@ -80,6 +74,7 @@ export const OrdersFormLayout: React.FC<OrdersFormLayoutI> = ({
 				register={register}
 				errors={errors.terms}
 				onChange={setShowWishDiscount}
+				label="Odaberite uslove"
 			/>
 
 			{wishDiscount && (
@@ -97,7 +92,7 @@ export const OrdersFormLayout: React.FC<OrdersFormLayoutI> = ({
 			<Textarea rows={10} theme="primary" placeholder="Napomena" {...register('message')} />
 			<Container theme="buttonWrapper">
 				<Button type="submit" theme="primary">
-					Naruci odmah!
+					Potvrdi
 				</Button>
 				<Paragraph theme="primary">
 					Besplatna dostava na teritoriji Republike Srbije. Za sve proizvode koji su dostupni i raspoloživi krajnji rok

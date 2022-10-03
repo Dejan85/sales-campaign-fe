@@ -1,9 +1,15 @@
 import styled from '@emotion/styled'
-import { primary } from './Label.themes'
+import { primary, secondary, third } from './Label.themes'
 
-interface LinkI {
-	theme: 'primary'
+export enum LabelE {
+	primary = 'primary',
+	secondary = 'secondary',
+	third = 'third'
 }
 
-const styles = { primary }
-export const Label = styled.label(({ theme }: LinkI) => styles[theme])
+interface LabelI {
+	theme: LabelE
+}
+
+const styles = { primary, secondary, third }
+export const Label = styled.label(({ theme }: LabelI) => styles[theme])

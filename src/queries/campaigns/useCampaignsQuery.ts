@@ -41,7 +41,7 @@ export const useCampaignByIdQuery = (id: string): CampaignsBySlugReturnI => {
 		{
 			enabled: id ? true : false,
 			select: data => {
-				return data[0]
+				return data
 			}
 		}
 	)

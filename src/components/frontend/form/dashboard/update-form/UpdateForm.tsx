@@ -5,9 +5,8 @@ import { UpdateFormI } from './types'
 import { schema } from 'components/frontend/form/dashboard/create-form/CreateForm'
 import { CreateFormLayout } from 'components/ui/layouts/form-layout/dashboard/create-form'
 import { CreateFormI } from '../create-form/types'
-import { deleteCampaign, getCampaigns, updateCampaign } from 'api/methods'
+import { deleteCampaign, updateCampaign } from 'api/methods'
 import { useQueryClient } from 'react-query'
-import { CampaignsQueryKeys } from 'queries/campaigns/useCampaignsQuery'
 import { useRouter } from 'next/router'
 
 export const UpdateForm: React.FC<UpdateFormI> = ({ campaign }): JSX.Element => {
@@ -15,13 +14,13 @@ export const UpdateForm: React.FC<UpdateFormI> = ({ campaign }): JSX.Element => 
 	const { push, query } = useRouter()
 	const id = query.id as string
 
-	const { register, handleSubmit, formState, setValue } = useForm<CreateFormI>({
+	const { register, handleSubmit, formState, setValue, getValues } = useForm<CreateFormI>({
 		resolver: yupResolver(schema),
 		defaultValues: campaign
 	})
 	const onSubmit: SubmitHandler<CreateFormI> = async (data, e) => {
 		try {
-			const response = await updateCampaign(id, data)
+			await updateCampaign(id, data)
 			queryClient.refetchQueries()
 			push('/dashboard/campaigns')
 		} catch (error) {
@@ -31,8 +30,7 @@ export const UpdateForm: React.FC<UpdateFormI> = ({ campaign }): JSX.Element => 
 
 	const deleteHandler = async (): Promise<void> => {
 		try {
-			const response = await deleteCampaign(id)
-			queryClient.refetchQueries()
+			await deleteCampaign(id)
 			push('/dashboard/campaigns')
 		} catch (error) {
 			console.log('test createCampaign error', error)
@@ -47,6 +45,7 @@ export const UpdateForm: React.FC<UpdateFormI> = ({ campaign }): JSX.Element => 
 			onSubmit={onSubmit}
 			formState={formState}
 			setValue={setValue}
+			getValues={getValues}
 			deleteHandler={deleteHandler}
 		/>
 	)

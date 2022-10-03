@@ -1,18 +1,30 @@
 import { CreateFormI } from 'components/frontend/form/dashboard/create-form/types'
 import { DatePickerLayout } from 'components/ui/layouts/date-picker'
+import { GroupLayout } from 'components/ui/layouts/group-layout'
 import { InputLayout } from 'components/ui/layouts/input-layout'
 import { SelectLayout } from 'components/ui/layouts/select-layout'
 import { Button } from 'components/ui/styles/button'
 import { Container } from 'components/ui/styles/container'
+import { LabelE } from 'components/ui/styles/label/Label.styles'
 import { ModalContext } from 'context/modal/modalContext'
 import { useContext } from 'react'
-import { UseFormRegister, UseFormHandleSubmit, SubmitHandler, FormState, UseFormSetValue } from 'react-hook-form'
+import {
+	UseFormRegister,
+	UseFormHandleSubmit,
+	SubmitHandler,
+	FormState,
+	UseFormSetValue,
+	UseFormGetValues
+} from 'react-hook-form'
+import { airSmart, therapyAiriOnBlack, therapyAiriOnWhite } from './const'
+import { Group } from './partials/Group'
 
 interface FormLayoutI {
 	register: UseFormRegister<CreateFormI>
 	handleSubmit: UseFormHandleSubmit<CreateFormI>
 	onSubmit: SubmitHandler<CreateFormI>
 	formState: FormState<CreateFormI>
+	getValues?: UseFormGetValues<CreateFormI>
 	setValue: UseFormSetValue<CreateFormI>
 	deleteHandler?: () => Promise<void>
 	id?: string
@@ -24,6 +36,7 @@ export const CreateFormLayout: React.FC<FormLayoutI> = ({
 	onSubmit,
 	formState: { errors },
 	setValue,
+	getValues,
 	deleteHandler,
 	id
 }): JSX.Element => {
@@ -35,29 +48,30 @@ export const CreateFormLayout: React.FC<FormLayoutI> = ({
 			<InputLayout
 				theme="primary"
 				register={register}
-				placeholder="Name of campaign"
+				placeholder="Ime kampanje"
 				name="name"
 				errors={errors.name}
-				label="Name of campaign"
+				label="Ime kampanje"
 			/>
 
 			<DatePickerLayout
-				label="Set expire date"
+				label="Datum isteka"
 				theme="primary"
-				placeholder={errors.expireDate ? errors.expireDate?.message : 'Expire date'}
+				placeholder={errors.expireDate ? errors.expireDate?.message : 'Datum isteka'}
 				register={register}
 				errors={errors.expireDate}
+				getValues={getValues}
 				setValue={setValue}
 			/>
 
 			<SelectLayout
 				name="activity"
 				theme="primary"
-				placeholder="Active"
+				placeholder="Da li je kampanja activna ili ne?"
 				options={['true', 'false']}
 				register={register}
 				errors={errors.activity}
-				label="Set activity of campaign"
+				label="Da li je kampanja activna ili ne?"
 			/>
 
 			<InputLayout
@@ -69,71 +83,45 @@ export const CreateFormLayout: React.FC<FormLayoutI> = ({
 				label="Slug"
 			/>
 
-			<Container theme="inputWrapper">
-				<InputLayout
-					type="number"
-					theme="primary"
-					register={register}
-					placeholder="Therapy Air Smart Price"
-					name="therapyAirSmartPrice"
-					errors={errors.therapyAirSmartPrice}
-					label="Therapy Air Smart Price"
-				/>
+			<InputLayout
+				theme="primary"
+				register={register}
+				placeholder="Ukupan broj rezervacija"
+				name="totalNumberOfReservations"
+				errors={errors.slug}
+				label="Ukupan broj rezervacija"
+			/>
 
-				<InputLayout
-					type="number"
-					theme="primary"
-					register={register}
-					placeholder="Therapy Air Smart Discount Price"
-					name="therapyAirSmartDiscountPrice"
-					errors={errors.therapyAirSmartDiscountPrice}
-					label="Therapy Air Smart Discount Price"
-				/>
-			</Container>
+			<InputLayout
+				theme="primary"
+				register={register}
+				placeholder="Trenutni nivo popusta"
+				name="currentDiscountLevel"
+				errors={errors.slug}
+				label="Trenutni nivo popusta"
+			/>
 
-			<Container theme="inputWrapper">
-				<InputLayout
-					type="number"
-					theme="primary"
-					register={register}
-					placeholder="Therapy Air iOn White"
-					name="therapyAiriOnWhite"
-					errors={errors.therapyAiriOnWhite}
-					label="Therapy Air iOn White"
-				/>
+			<InputLayout
+				theme="primary"
+				register={register}
+				placeholder="Potrebno validnih rezervacija"
+				name="validReservationsRequired"
+				errors={errors.slug}
+				label="Potrebno validnih rezervacija"
+			/>
 
-				<InputLayout
-					type="number"
-					theme="primary"
-					register={register}
-					placeholder="Therapy Air iOn White Discount Price"
-					name="therapyAiriOnWhiteDiscountPrice"
-					errors={errors.therapyAiriOnWhiteDiscountPrice}
-					label="Therapy Air iOn White Discount Price"
-				/>
-			</Container>
+			<InputLayout
+				theme="primary"
+				register={register}
+				placeholder="Do sledeceg nivoa popusta"
+				name="nextLevelOfDiscount"
+				errors={errors.slug}
+				label="Do sledeceg nivoa popusta"
+			/>
 
-			<Container theme="inputWrapper">
-				<InputLayout
-					type="number"
-					theme="primary"
-					register={register}
-					placeholder="Therapy Air iOn Black"
-					name="therapyAiriOnBlack"
-					errors={errors.therapyAiriOnBlack}
-					label="Therapy Air iOn Black"
-				/>
-
-				<InputLayout
-					type="number"
-					theme="primary"
-					register={register}
-					placeholder="Therapy Air iOn Black Discount Price"
-					name="therapyAiriOnBlackDiscountPrice"
-					errors={errors.therapyAiriOnBlackDiscountPrice}
-					label="Therapy Air iOn Black Discount Price"
-				/>
-			</Container>
+			<Group register={register} errors={errors} data={airSmart} />
+			<Group register={register} errors={errors} data={therapyAiriOnWhite} />
+			<Group register={register} errors={errors} data={therapyAiriOnBlack} />
 
 			<Container theme="buttonWrapper">
 				<Button type="submit" theme="primary">
@@ -145,6 +133,7 @@ export const CreateFormLayout: React.FC<FormLayoutI> = ({
 						type="button"
 						theme="deleteBtn"
 						onClick={() => {
+							window.scrollTo(0, 0)
 							toggleModalAction({ deleteHandler, id })
 						}}
 					>

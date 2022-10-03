@@ -41,7 +41,7 @@ interface PatchI {
 
 interface PostI {
 	route: string
-	data?: CreateFormI | OrdersI
+	data?: CreateFormI | OrdersI | { email: string }
 	headers?: IncomingHttpHeaders
 	config?: any
 	needsAuth?: boolean

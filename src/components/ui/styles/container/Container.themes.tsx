@@ -1,6 +1,7 @@
 import { css } from '@emotion/react'
 
 export const primary = css`
+	position: relative;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
@@ -9,7 +10,9 @@ export const primary = css`
 
 export const primaryRow = css`
 	display: flex;
+	position: relative;
 	min-height: 100vh;
+	height: 100%;
 `
 
 export const primaryBg = css`
@@ -22,8 +25,15 @@ export const secondary = css`
 	justify-content: center;
 	width: var(--wd-1440);
 	margin: var(--margin-center);
-	padding: var(--pd-lr-10);
+	padding: var(--pd-10);
 	padding-top: var(--pd-t-70px);
+	padding-bottom: var(--pd-50);
+`
+
+export const third = css`
+	${secondary}
+	justify-content:left;
+	padding-bottom: 0px;
 `
 
 export const fullWidthBg = css`
@@ -62,12 +72,12 @@ export const dashboard = css`
 export const wrapper = css`
 	display: flex;
 	flex-direction: column;
-	align-items: center;
 `
 
 export const linkWrapper = css`
 	${wrapper}
 	padding-top: var(--pd-t-50px);
+	gap: 20px;
 `
 
 export const linkWrapperSecondary = css`
@@ -93,6 +103,7 @@ export const formWrapper = css`
 
 export const inputWrapper = css`
 	display: flex;
+	flex-wrap: wrap;
 	gap: var(--gp-20);
 `
 
@@ -148,4 +159,11 @@ export const modalContent = css`
 	max-width: 650px;
 	width: 100%;
 	padding: 30px 0px;
+`
+export const groupLayout = css`
+	display: flex;
+	flex-direction: column;
+	background-color: var(--secondary-color);
+	padding: 0 20px 30px 20px;
+	border-radius: 20px;
 `

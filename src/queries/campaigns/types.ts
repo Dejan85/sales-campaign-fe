@@ -1,15 +1,7 @@
-export interface CampaignsI {
+import { CreateFormI } from "components/frontend/form/dashboard/create-form/types"
+
+export interface CampaignsI extends CreateFormI {
 	id: number
-	name: string
-	expireDate: number | null
-	activity: boolean
-	slug: string
-	therapyAirSmartDiscountPrice: string
-	therapyAiriOnWhiteDiscountPrice: string
-	therapyAiriOnBlackDiscountPrice: string
-	therapyAirSmartPrice: string
-	therapyAiriOnWhite: string
-	therapyAiriOnBlack: string
 }
 
 export type campaignsT = CampaignsI[] | undefined

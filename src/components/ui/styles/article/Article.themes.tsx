@@ -27,5 +27,6 @@ export const timer = css`
 	display: flex;
 	justify-content: center;
 	gap: var(--gp-60);
-	padding-top: var(--pd-t-30px);
+	padding-top: var(--pd-10);
+	padding-bottom: var(--pd-20);
 `

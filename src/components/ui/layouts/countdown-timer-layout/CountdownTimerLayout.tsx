@@ -10,10 +10,10 @@ interface CountdownTimerLayoutI {
 export const CountdownTimerLayout: React.FC<CountdownTimerLayoutI> = ({ remainingTime }): JSX.Element => {
 	return (
 		<Article theme="timer">
-			<ContainerComponent text="days" data={remainingTime.days} />
-			<ContainerComponent text="hours" data={remainingTime.hours} />
-			<ContainerComponent text="minutes" data={remainingTime.minutes} />
-			<ContainerComponent text="seconds" data={remainingTime.seconds} />
+			<ContainerComponent text="dan" data={remainingTime.days} />
+			<ContainerComponent text="sat" data={remainingTime.hours} />
+			<ContainerComponent text="minut" data={remainingTime.minutes} />
+			<ContainerComponent text="sekund" data={remainingTime.seconds} />
 		</Article>
 	)
 }

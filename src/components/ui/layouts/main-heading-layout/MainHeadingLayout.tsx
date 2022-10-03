@@ -8,10 +8,10 @@ interface MainHeadingLayoutI {
 
 export const MainHeadingLayout: React.FC<MainHeadingLayoutI> = ({ headingText }): JSX.Element => {
 	return (
-		<Article theme="mainHeading">
-			<Heading as="h2" theme="primary">
-				{headingText}
-			</Heading>
-		</Article>
+		// <Article theme="mainHeading">
+		<Heading as="h2" theme="primary">
+			{headingText}
+		</Heading>
+		// </Article>
 	)
 }

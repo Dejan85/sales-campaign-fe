@@ -1,17 +1,17 @@
 import { getCampaignsBySlug } from 'api/methods'
-import { CountdownTimer } from 'components/frontend/countdown-timer'
 import { CheckInLinkLayout } from 'components/ui/layouts/check-in-link-layout'
-import { ImageLayout } from 'components/ui/layouts/image-layout'
 import { MainHeadingLayout } from 'components/ui/layouts/main-heading-layout'
-import { Section } from 'components/ui/styles/section'
 import { GetServerSideProps, NextPage } from 'next'
 import { useRouter } from 'next/router'
 import { CampaignsQueryKeys, useCampaignsBySlugQuery } from 'queries/campaigns/useCampaignsQuery'
-import { dehydrate, DehydratedState, QueryClient } from 'react-query'
+import { dehydrate, QueryClient } from 'react-query'
 import { SpecialOfferLayout } from 'components/ui/layouts/special-offer-layout'
 import { PriceLayout } from 'components/ui/layouts/price-layout/PriceLayout'
-import { Container } from 'components/ui/styles/container'
 import { CampaignsI } from 'queries/campaigns/types'
+import { Paragraph } from 'components/ui/styles/typography/paragraph'
+import { ContainerRow } from 'components/ui/refactore/container'
+import { Section } from 'components/ui/refactore/section/Section'
+import { ImageSection } from 'components/ui/refactore/image-section/ImageSection'
 
 const Campaign: NextPage = (): JSX.Element => {
 	const { query } = useRouter()
@@ -21,50 +21,64 @@ const Campaign: NextPage = (): JSX.Element => {
 
 	return (
 		<>
-			<Container theme="secondary">
-				<Section theme="primary">
-					<MainHeadingLayout headingText="Therapy Air Smart" />
-					<PriceLayout />
-					<SpecialOfferLayout />
+			<SpecialOfferLayout
+				totalNumberOfReservations={campaign?.totalNumberOfReservations}
+				currentDiscountLevel={campaign?.currentDiscountLevel}
+				validReservationsRequired={campaign?.validReservationsRequired}
+				nextLevelOfDiscount={campaign?.nextLevelOfDiscount}
+				countdownTimestampMs={countdownTimestampMs}
+			/>
 
-					<CountdownTimer countdownTimestampMs={countdownTimestampMs} />
+			<ContainerRow justifyContent="space-between">
+				<Section paddingTop="70">
+					<MainHeadingLayout headingText="Therapy Air Smart" />
+					<PriceLayout
+						price={campaign?.airSmartPrice}
+						discountPrice={campaign?.airSmartDiscountPrice}
+						discount={campaign?.airSmartDiscountPercent}
+					/>
+					<Paragraph style={{ fontWeight: 'bold', marginTop: '30px' }} theme="primary">
+						Trenutno rezervisanih uredjaja: {`${campaign?.airSmartDevicesInStock}`}
+					</Paragraph>
 					<CheckInLinkLayout slug={slug} model="therapy-air-smart" />
 				</Section>
 
-				<Section theme="imageSection">
-					<ImageLayout imageName="therapy-air-smart.jpg" />
-				</Section>
-			</Container>
+				<ImageSection image="therapy-air-smart.jpg" />
+			</ContainerRow>
 
-			<Container theme="secondary">
-				<Section theme="primary">
+			<ContainerRow>
+				<Section paddingTop="70">
 					<MainHeadingLayout headingText="Therapy Air iOn White" />
-					<PriceLayout />
-					<SpecialOfferLayout />
-
-					<CountdownTimer countdownTimestampMs={countdownTimestampMs} />
+					<PriceLayout
+						price={campaign?.airiOnWhitePrice}
+						discountPrice={campaign?.airiOnWhiteDiscountPrice}
+						discount={campaign?.airiOnWhiteDiscountPercent}
+					/>
+					<Paragraph style={{ fontWeight: 'bold', marginTop: '30px' }} theme="primary">
+						Trenutno rezervisanih uredjaja: {`${campaign?.airiOnWhiteDevicesInStock}`}
+					</Paragraph>
 					<CheckInLinkLayout slug={slug} model="therapy-air-iOn-white" />
 				</Section>
 
-				<Section theme="imageSection">
-					<ImageLayout imageName="therapy-air-ion-uredjaji.webp" />
-				</Section>
-			</Container>
+				<ImageSection image="therapy-air-ion-uredjaji.webp" />
+			</ContainerRow>
 
-			<Container theme="secondary">
-				<Section theme="primary">
+			<ContainerRow justifyContent="space-between">
+				<Section paddingTop="70">
 					<MainHeadingLayout headingText="Therapy Air iOn Black" />
-					<PriceLayout />
-					<SpecialOfferLayout />
-
-					<CountdownTimer countdownTimestampMs={countdownTimestampMs} />
+					<PriceLayout
+						price={campaign?.airiOnBlackPrice}
+						discountPrice={campaign?.airiOnBlackDiscountPrice}
+						discount={campaign?.airiOnBlackDiscountPercent}
+					/>
+					<Paragraph style={{ fontWeight: 'bold', marginTop: '30px' }} theme="primary">
+						Trenutno rezervisanih uredjaja: {`${campaign?.airiOnBlackDevicesInStock}`}
+					</Paragraph>
 					<CheckInLinkLayout slug={slug} model="therapy-air-iOn-black" />
 				</Section>
 
-				<Section theme="imageSection">
-					<ImageLayout imageName="therapy-air-ion-uredjaji.webp" />
-				</Section>
-			</Container>
+				<ImageSection image="therapy-air-ion-uredjaji.webp" />
+			</ContainerRow>
 		</>
 	)
 }

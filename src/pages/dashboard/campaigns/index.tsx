@@ -17,6 +17,7 @@ export default Campaigns
 export const getServerSideProps: GetServerSideProps = async () => {
 	const queryClient: QueryClient = new QueryClient()
 	await queryClient.prefetchQuery<CampaignsI[]>(CampaignsQueryKeys.campaigns, getCampaigns)
+	queryClient.invalidateQueries()
 
 	return {
 		props: {

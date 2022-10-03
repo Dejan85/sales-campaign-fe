@@ -2,7 +2,8 @@ import { ActionI, InitialStateI } from './types'
 
 export const initialState: InitialStateI = {
 	toggleModal: false,
-	deleteHandler: async (id: number) => {},
+	toggleNewsLetterModal: false,
+	deleteHandler: async (id: number) => { },
 	message: '',
 	id: null
 }
@@ -16,6 +17,11 @@ export const reducer = (state: InitialStateI, action: ActionI) => {
 				deleteHandler: action.payload?.deleteHandler,
 				message: action.payload?.message,
 				id: action.payload?.id
+			}
+		case 'show-newsletter-modal':
+			return {
+				...state,
+				toggleNewsLetterModal: !state.toggleNewsLetterModal,
 			}
 		default:
 			return state

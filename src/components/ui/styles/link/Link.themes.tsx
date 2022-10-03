@@ -30,3 +30,8 @@ export const secondary = css`
 		transition: 0.7s all;
 	}
 `
+
+export const third = css`
+	${primary}
+	width: 200px;
+`

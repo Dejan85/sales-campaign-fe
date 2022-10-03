@@ -5,12 +5,26 @@ export interface CreateFormI {
 	expireDate: number | null
 	activity: boolean
 	slug: string
-	therapyAirSmartDiscountPrice: string
-	therapyAiriOnWhiteDiscountPrice: string
-	therapyAiriOnBlackDiscountPrice: string
-	therapyAirSmartPrice: string
-	therapyAiriOnWhite: string
-	therapyAiriOnBlack: string
+
+	totalNumberOfReservations: string,
+	currentDiscountLevel: string,
+	validReservationsRequired: string,
+	nextLevelOfDiscount: string,
+
+	airSmartPrice: string,
+	airSmartDiscountPrice: string,
+	airSmartDiscountPercent: string,
+	airSmartDevicesInStock: string,
+
+	airiOnWhitePrice: string,
+	airiOnWhiteDiscountPrice: string,
+	airiOnWhiteDiscountPercent: string,
+	airiOnWhiteDevicesInStock: string,
+
+	airiOnBlackPrice: string,
+	airiOnBlackDiscountPrice: string,
+	airiOnBlackDiscountPercent: string,
+	airiOnBlackDevicesInStock: string
 }
 
 export interface CreateFormPropsI {

@@ -10,19 +10,7 @@ interface CampaignsPageLayoutI {
 }
 
 export const CampaignsPageLayout: React.FC<CampaignsPageLayoutI> = ({ campaigns }): JSX.Element => {
-	const columns = [
-		'Id',
-		'Name',
-		'Expire date',
-		'Activity',
-		'Slug',
-		'AirSmart price',
-		'AirSmart discount',
-		'Air iOn white',
-		'Air iOn white discount',
-		'Air iOn black',
-		'Air iOn black discount'
-	]
+	const columns = ['Edit', 'Name', 'Expire date', 'Activity', 'Slug']
 
 	return (
 		<Container theme="flexColumn">

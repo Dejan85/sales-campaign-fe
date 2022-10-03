@@ -18,6 +18,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
 	const queryClient: QueryClient = new QueryClient()
 
 	await queryClient.prefetchQuery<OrdersI[]>(OrdersQueryKeys.orders, getOrders)
+	queryClient.invalidateQueries()
 
 	return {
 		props: {

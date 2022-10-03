@@ -1,5 +1,6 @@
 import { Container } from 'components/ui/styles/container'
 import { Label } from 'components/ui/styles/label'
+import { LabelE } from 'components/ui/styles/label/Label.styles'
 import { Select } from 'components/ui/styles/select'
 import { SelectThemeT } from 'components/ui/styles/select/Select.styles'
 import { ChangeEvent } from 'react'
@@ -28,12 +29,13 @@ export const SelectLayout: React.FC<InputLayoutI> = ({
 }): JSX.Element => {
 	return (
 		<Container theme="relative">
-			{label && <Label theme="primary">{label}</Label>}
+			{label && <Label theme={LabelE.primary}>{label}</Label>}
 			<Select
 				theme={theme}
 				{...register(name)}
 				errors={errors}
 				onChange={(e: ChangeEvent<HTMLSelectElement>) => {
+					console.log('test', e.target.value)
 					onChange && onChange(e.target.value)
 				}}
 				name={name}
