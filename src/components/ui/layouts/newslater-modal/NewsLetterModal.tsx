@@ -27,9 +27,6 @@ export const NewsLetterModal: React.FC = (): JSX.Element => {
 	const {
 		register,
 		handleSubmit,
-		formState,
-		setValue,
-		setError,
 		formState: { errors }
 	} = useForm<NewsLetterI>({
 		resolver: yupResolver(schema)
@@ -37,11 +34,8 @@ export const NewsLetterModal: React.FC = (): JSX.Element => {
 
 	const onSubmit: SubmitHandler<NewsLetterI> = async data => {
 		try {
-			console.log('test data', data)
-
 			await followPromotions(data)
 			toggleNewsLetterModalAction()
-			// push(`/${slug[0]}`)
 		} catch (error) {
 			console.log('test create order error', error)
 		}

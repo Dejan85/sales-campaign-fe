@@ -1,7 +1,8 @@
 import { CampaignsI } from 'queries/campaigns/types'
+import { FollowerI } from 'queries/followers/types'
 import { OrdersI } from 'queries/orders/types'
 
-export const useTableUtils = (columns: string[], data: CampaignsI[] | OrdersI[]) => {
+export const useTableUtils = (columns: string[], data: CampaignsI[] | OrdersI[] | FollowerI[]) => {
 	const columnNumber = columns.length
 
 	data?.forEach((object: any) => {

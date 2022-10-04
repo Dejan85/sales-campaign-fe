@@ -7,7 +7,8 @@ import React from 'react'
 
 export enum NavEnum {
 	campaigns = 'campaigns',
-	orders = 'orders'
+	orders = 'orders',
+	followers = 'followers'
 }
 
 export const NavLayout: NextPage = (): JSX.Element => {
@@ -34,6 +35,17 @@ export const NavLayout: NextPage = (): JSX.Element => {
 					theme="nav"
 				>
 					{NavEnum.orders}
+				</Paragraph>
+			</Link>
+
+			<Link href="/dashboard/followers">
+				<Paragraph
+					style={{
+						background: route.search(NavEnum.followers) !== -1 ? 'var(--secondary-color)' : 'var(--primary-color)'
+					}}
+					theme="nav"
+				>
+					{NavEnum.followers}
 				</Paragraph>
 			</Link>
 		</Nav>

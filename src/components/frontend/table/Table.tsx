@@ -1,12 +1,13 @@
 import { TableLayout } from 'components/ui/layouts/table-layout'
 import { CampaignsI } from 'queries/campaigns/types'
+import { FollowerI } from 'queries/followers/types'
 import { OrdersI } from 'queries/orders/types'
 import React from 'react'
 import { useTableUtils } from 'utils'
 
 interface TableI {
 	columns: string[]
-	campaigns: CampaignsI[] | OrdersI[]
+	campaigns: CampaignsI[] | OrdersI[] | FollowerI[]
 	deleteHandler?: (id: string) => Promise<void>
 }
 

@@ -105,3 +105,11 @@ export const followPromotions = (data: { email: string }) =>
 		route: API_ROUTES.followPromotions(),
 		data
 	})
+
+///////////////////////////////////// DELETE METHODS ///////////////////////////////////////////
+
+// DELETE follower
+export const deleteFollower = (id: string) =>
+	FetchWrapper.delete({
+		route: API_ROUTES.deleteFollower(id)
+	})
