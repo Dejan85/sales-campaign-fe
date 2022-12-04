@@ -7,7 +7,7 @@ import { useOutsideClick } from 'utils'
 
 export const Modal: React.FC = (): JSX.Element => {
 	const { toggleModalAction, deleteHandler, id } = useContext(ModalContext)
-	const ModalRef = useRef(null)
+	const ModalRef = useRef(null!)
 	useOutsideClick(ModalRef, toggleModalAction)
 
 	return (

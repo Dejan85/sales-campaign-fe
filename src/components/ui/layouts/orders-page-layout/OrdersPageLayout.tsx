@@ -12,7 +12,7 @@ interface OrdersPageLayoutI {
 }
 
 export const OrdersPageLayout: React.FC<OrdersPageLayoutI> = ({ orders }): JSX.Element => {
-	const columns = ['Id', 'Name', 'Email', 'Phone', 'Quantity']
+	const columns = ['Id', 'Name', 'Email', 'Phone', 'Quantity', 'Terms', 'Wish Discount', 'Message']
 	const queryClient = useQueryClient()
 
 	const deleteHandler = async (id: string) => {
@@ -23,6 +23,8 @@ export const OrdersPageLayout: React.FC<OrdersPageLayoutI> = ({ orders }): JSX.E
 			console.log('test error for delete order', error)
 		}
 	}
+
+	console.log('test orders', orders)
 
 	return (
 		<Container theme="flexColumn">

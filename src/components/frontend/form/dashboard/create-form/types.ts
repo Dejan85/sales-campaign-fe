@@ -15,16 +15,19 @@ export interface CreateFormI {
 	airSmartDiscountPrice: string,
 	airSmartDiscountPercent: string,
 	airSmartDevicesInStock: string,
+	airSmartTotalNumberOfReservations: string
 
 	airiOnWhitePrice: string,
 	airiOnWhiteDiscountPrice: string,
 	airiOnWhiteDiscountPercent: string,
 	airiOnWhiteDevicesInStock: string,
+	airiOnWhiteTotalNumberOfReservations: string
 
 	airiOnBlackPrice: string,
 	airiOnBlackDiscountPrice: string,
 	airiOnBlackDiscountPercent: string,
 	airiOnBlackDevicesInStock: string
+	airiOnBlackTotalNumberOfReservations: string
 }
 
 export interface CreateFormPropsI {

@@ -144,17 +144,17 @@ export const modal = css`
 	align-items: center;
 	z-index: 100;
 	width: 100%;
-	height: 100%;
+	height: 100vh;
 	background: rgba(23, 22, 21, 0.5);
-
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
+	/* top: 50%;
+	left: 50%; */
+	/* transform: translate(-50%, -50%); */
 `
 
 export const modalContent = css`
 	${wrapper}
 	justify-content:center;
+	align-items: center;
 	background: white;
 	max-width: 650px;
 	width: 100%;

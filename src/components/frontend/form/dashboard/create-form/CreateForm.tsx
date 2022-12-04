@@ -23,16 +23,19 @@ export const schema = yup.object().shape({
 	airSmartDiscountPrice: yup.string().required('Therapy Air Smart discount price is required'),
 	airSmartDiscountPercent: yup.string().required('Therapy Air Smart discount is required'),
 	airSmartDevicesInStock: yup.string().required('Therapy Air Smart devices in stock is required'),
+	airSmartTotalNumberOfReservations: yup.string().required('Total number of reservations is required'),
 
 	airiOnWhitePrice: yup.string().required('Therapy air iOn white price is required'),
 	airiOnWhiteDiscountPrice: yup.string().required('Therapy air iOn white discount price is required'),
 	airiOnWhiteDiscountPercent: yup.string().required('Therapy air iOn white discount is required'),
 	airiOnWhiteDevicesInStock: yup.string().required('Therapy air iOn white devices in stock is required'),
+	airiOnWhiteTotalNumberOfReservations: yup.string().required('Total number of reservations is required'),
 
 	airiOnBlackPrice: yup.string().required('Therapy air iOn Black price is required'),
 	airiOnBlackDiscountPrice: yup.string().required('Therapy air iOn Black discount price is required'),
 	airiOnBlackDiscountPercent: yup.string().required('Therapy air iOn Black discount is required'),
-	airiOnBlackDevicesInStock: yup.string().required('Therapy air iOn Black devices in stock is required')
+	airiOnBlackDevicesInStock: yup.string().required('Therapy air iOn Black devices in stock is required'),
+	airiOnBlackTotalNumberOfReservations: yup.string().required('Total number of reservations is required')
 })
 
 export const CreateForm: React.FC = (): JSX.Element => {

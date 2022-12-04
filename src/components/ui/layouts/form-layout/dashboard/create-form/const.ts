@@ -22,6 +22,11 @@ export const airSmart: DataT = [
         placeholderAndLabel: "Preostali broj uredjaja na stanju",
         name: "airSmartDevicesInStock",
     },
+    {
+        placeholderAndLabel: "Ukupan broj rezervacija",
+        name: "airSmartTotalNumberOfReservations",
+    },
+
 ]
 
 export const therapyAiriOnWhite: DataT = [
@@ -41,6 +46,10 @@ export const therapyAiriOnWhite: DataT = [
         placeholderAndLabel: "Preostali broj uredjaja na stanju",
         name: "airiOnWhiteDevicesInStock",
     },
+    {
+        placeholderAndLabel: "Ukupan broj rezervacija",
+        name: "airiOnWhiteTotalNumberOfReservations",
+    },
 ]
 
 export const therapyAiriOnBlack: DataT = [
@@ -59,5 +68,9 @@ export const therapyAiriOnBlack: DataT = [
     {
         placeholderAndLabel: "Preostali broj uredjaja na stanju",
         name: "airiOnBlackDevicesInStock",
+    },
+    {
+        placeholderAndLabel: "Ukupan broj rezervacija",
+        name: "airiOnBlackTotalNumberOfReservations",
     },
 ]

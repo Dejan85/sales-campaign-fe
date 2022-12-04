@@ -33,8 +33,17 @@ export const useTableUtils = (columns: string[], data: CampaignsI[] | OrdersI[] 
 				case 'phone':
 					columns.push(`${object[key]}`)
 					break
+				case 'terms':
+					columns.push(`${object[key]}`)
+					break
+				case 'message':
+					columns.push(`${object[key]}`)
+					break
+				case 'wishDiscount':
+					columns.push(`${object[key]}`)
+					break
 				default:
-					break;
+					break
 			}
 		}
 	})

@@ -6,9 +6,10 @@ export const modalAction = (): ModalActionReturnI => {
 	const [state, dispatch] = useReducer(reducer, initialState)
 
 	const toggleModalAction = (props: PayloadI): void => {
-		if (state.toggleNewsLetterModal) {
+		if (document.body.style.overflow === 'hidden') {
 			document.body.style.overflow = 'auto'
 		} else {
+			window.scrollTo(0, 0)
 			document.body.style.overflow = 'hidden'
 		}
 
@@ -16,9 +17,10 @@ export const modalAction = (): ModalActionReturnI => {
 	}
 
 	const toggleNewsLetterModalAction = (): void => {
-		if (state.toggleNewsLetterModal) {
+		if (document.body.style.overflow === 'hidden') {
 			document.body.style.overflow = 'auto'
 		} else {
+			window.scrollTo(0, 0)
 			document.body.style.overflow = 'hidden'
 		}
 
@@ -31,5 +33,3 @@ export const modalAction = (): ModalActionReturnI => {
 		state
 	}
 }
-
-

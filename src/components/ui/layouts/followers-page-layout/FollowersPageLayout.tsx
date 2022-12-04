@@ -24,8 +24,6 @@ export const FollowersPageLayout: React.FC<PropsI> = ({ followers }): JSX.Elemen
 		}
 	}
 
-	console.log('test followers', followers)
-
 	return (
 		<Container theme="flexColumn">
 			{followers?.length ? (

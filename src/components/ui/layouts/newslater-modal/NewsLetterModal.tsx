@@ -1,4 +1,8 @@
-import { Container } from 'components/ui/refactore/container/Container.styles'
+import {
+	Container,
+	ContainerColumnStyles,
+	ContainerRowStyles
+} from 'components/ui/refactore/container/Container.styles'
 import { Paragraph } from 'components/ui/styles/typography/paragraph'
 import { ModalContext } from 'context/modal/modalContext'
 import React, { useContext, useEffect, useRef } from 'react'
@@ -63,9 +67,19 @@ export const NewsLetterModal: React.FC = (): JSX.Element => {
 						{...register('email')}
 						errors={errors.email}
 					/>
-					<Button style={{ padding: '10px' }} theme="tableBtn">
-						Submit
-					</Button>
+					<ContainerRowStyles gap="20px">
+						<Button
+							type="button"
+							onClick={toggleNewsLetterModalAction}
+							style={{ padding: '10px', width: '100%' }}
+							theme="tableBtn"
+						>
+							Izadji
+						</Button>
+						<Button type="submit" style={{ padding: '10px', width: '100%' }} theme="tableBtn">
+							Submit
+						</Button>
+					</ContainerRowStyles>
 				</Form>
 			</FormWrapper>
 		</ModalContainer>

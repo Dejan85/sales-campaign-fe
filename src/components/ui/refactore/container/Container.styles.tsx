@@ -6,6 +6,7 @@ export interface StylePropsI {
 	width?: '1440' | '230'
 	margin?: 'default'
 	padding?: 'reset'
+	gap?: string
 }
 
 export const ContainerRowStyles = styled.div<StylePropsI>`
@@ -17,6 +18,7 @@ export const ContainerRowStyles = styled.div<StylePropsI>`
 	width: 100%;
 	margin: ${({ margin = '0 auto' }) => (margin === 'default' ? 0 : margin)};
 	padding: ${({ padding }) => (padding === 'reset' ? 0 : 'var(--pd-10)')};
+	gap: ${({ gap }) => gap};
 `
 
 export const ContainerColumnStyles = styled(ContainerRowStyles)`
