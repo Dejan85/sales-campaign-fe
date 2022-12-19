@@ -12,7 +12,18 @@ interface OrdersPageLayoutI {
 }
 
 export const OrdersPageLayout: React.FC<OrdersPageLayoutI> = ({ orders }): JSX.Element => {
-	const columns = ['Id', 'Campaign name', 'Name', 'Email', 'Phone', 'Quantity', 'Terms', 'Wish Discount', 'Message']
+	const columns = [
+		'Id',
+		'Campaign name',
+		'Name',
+		'Email',
+		'Phone',
+		'Quantity',
+		'Terms',
+		'Wish Discount',
+		'Message',
+		'Confirmed'
+	]
 	const queryClient = useQueryClient()
 
 	const deleteHandler = async (id: string) => {

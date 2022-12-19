@@ -42,6 +42,9 @@ export const useTableUtils = (columns: string[], data: CampaignsI[] | OrdersI[] 
 				case 'wishDiscount':
 					columns.push(`${object[key]}`)
 					break
+				case 'confirm':
+					columns.push(`${object[key]}`)
+					break
 				default:
 					break
 			}
